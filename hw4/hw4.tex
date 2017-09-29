@@ -1,0 +1,289 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage[parfill]{parskip}
+
+\newcommand{\heading}[1]{\bigskip \textbf{#1}}
+\DeclareMathOperator{\sech}{sech}
+
+\title{Physics 112 Problem Set 4 \\ \large{Holzapfel, Section 102}}
+\author{Sahil Chinoy}
+\date{October 2, 2017}
+
+\begin{document}
+\maketitle{}
+
+\begin{enumerate}
+
+	\item 
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		Starting from the spectral intensity per unit wavelength,
+
+		$$I_\lambda = \frac{2 h \nu^5}{c^3 (\exp(h\nu / kT) - 1)},$$
+
+		we substitute $x = h \nu / kT$ and differentiate to find the frequency at which the intensity (per wavelength) peaks
+
+		$$0 = \frac{d I_\lambda}{d x} \implies e^x(5-x) = 5 \implies x = 4.965.$$
+
+		This enables us to calculate the temperature of the sun
+
+		$$T_S = \frac{h \nu_{peak}}{4.965 \times k} =  \frac{hc}{4.965 \times k \lambda_{peak}} = 6037 \text{ K.}$$
+
+		Now, for a cone of apex angle $2\theta$, the solid angle is
+
+		$$\Omega = \int \limits_0^{2\pi} \int \limits_0^\theta \sin \theta \; d\theta d\phi = 2\pi (1-\cos\theta) \approx \pi \theta^2$$
+
+		for $\theta \ll 1$. So the proportion of solar flux that reaches the Earth is $\pi \theta^2 / 4 \pi = \theta^2 / 4$, where $2\theta$ is the angle subtended by the sun, $0.5^\circ$.
+
+		Since the flux emitted by the sun must be proportional to the fourth power of its temperature (by the Stefan-Boltzmann law) and the flux absorbed by the Earth must likewise be proportional to the fourth power of its temperature, we have
+
+		$$T_E^4 = \frac{\theta^2}{4} T_S^4$$
+
+		or
+
+		$$T_E = \sqrt{\frac{(0.5^\circ / 2) \times (\pi / 180^\circ)}{2}} T_S = 282 \text{ K.}$$
+
+		This is approximately $9^\circ$ C, which seems far too low, especially since the sun is not illuminating the Earth at all hours of the day.
+
+		\item
+
+		If we assume that all the radiation from the sun absorbed by the Earth is re-emitted and absorbed by the atmosphere, and that the atmosphere subsequently re-emits this radiation equally in both directions (towards and away from the Earth), then the flux at the surface of the Earth is $1.5 \times$ the flux emitted by the sun that reaches the Earth, which gives
+
+		$$T_E = \left( \frac{3}{2} \right)^{1/4} \sqrt{\frac{(0.5^\circ / 2) \times (\pi / 180^\circ)}{2}} T_S = 312 \text{ K,}$$
+
+		or about $40^\circ$ C. 
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		The multiplicity is
+
+		$$g(N_2) = \frac{N!}{N_2! (N-N_2)!}.$$
+
+		\item
+
+		The entropy is
+
+		$$\sigma = \log g = \log (N!) - \log (N_2!) - \log((N-N_2)!),$$
+
+		and using the Stirling approximation for large $N$,
+
+		\begin{gather*}
+		\sigma = N \log N - N - (N_2 \log N_2 - N_2 + (N-N_2) \log(N-N_2) - (N-N_2)) \\
+		\sigma = N\log N - N_2 \log N_2 - (N-N_2)\log(N-N_2).
+		\end{gather*}
+
+		So
+
+		\begin{gather*}
+		\frac{\partial \sigma}{\partial N_2} = - \log N_2 - 1 + 1 + \log(N-N_2) = \log \left( \frac{N-N_2}{N_2} \right) = \log\left( \frac{N}{N_2} - 1 \right)
+		\end{gather*}
+
+		But $U = N_2\Delta$, so $\partial \sigma / \partial U = (1/\Delta) (\partial \sigma / \partial N_2),$ and since $1/\tau = \partial \sigma / \partial U$, 
+
+		\begin{gather*}
+		\frac{1}{\tau} = \frac{1}{\Delta} \log\left( \frac{N}{N_2} - 1 \right) \\
+		\exp{\left(\frac{\Delta}{\tau} \right)} + 1 = \frac{N}{N_2} \\
+		N_2 = \frac{N}{1 + \exp(\Delta/\tau)},
+		\end{gather*}
+
+		thus 
+
+		$$U = \frac{N \Delta}{1 + \exp(\Delta/\tau)}.$$
+
+		In the limit $\tau \to 0$, $U \to 0$, as expected. In the limit $\tau \to \infty$, $U \to N\Delta / 2$, which implies that half the systems are in the excited state.
+
+		\item
+
+		For the canonical ensemble, the partition function for a single system is
+
+		$$Z_1 = \sum \limits_s E_s \exp(- E_s/\tau) = 1 + \exp(- \Delta / \tau).$$
+
+		Thus the expected energy for a single system is 
+
+		$$U_1 = \frac{\Delta \exp(-\Delta / \tau)}{1 + \exp(- \Delta / \tau)} = \frac{\Delta}{1 + \exp(\Delta / \tau)},$$
+
+		and the expected energy for $N$ identical systems is
+
+		$$U = \frac{N \Delta}{1 + \exp(\Delta / \tau)},$$
+
+		which agrees with the result from the microcanonical ensemble.
+
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		A single mode, indexed by $n$, at frequency $\omega_n$, with $s$ photons has energy $\epsilon_n = s \hbar \omega_n$. Thus the partition function for a single mode is
+
+		$$Z_n = \sum \limits_{s=0}^{\infty} \exp \left( -s \hbar \omega_n / \tau \right) = \left[ 1 - \exp \left( - \hbar \omega_n / \tau \right) \right]^{-1}.$$
+
+		Then the partition function for the gas with $n$ modes is 
+
+		$$Z = \prod\limits_{n} \left[ 1 - \exp \left( -\hbar \omega_n / \tau \right) \right]^{-1}.$$
+
+		The Helmholtz free energy is then
+
+		$$F = -\tau \log Z = \tau \sum \limits_{n=0}^\infty  \log \left[ 1 - \exp \left( -\hbar \omega_n / \tau \right) \right].$$
+
+		To convert a sum over modes into an integral over frequencies, we need the density of photons at each frequency,
+
+		$$\rho_\omega d\omega = \frac{V \omega^2}{c^3 \pi^2} d\omega,$$
+
+		thus
+
+		$$F = \frac{V \tau}{c^3 \pi^2} \int \limits_0^\infty \omega^2 \log \left[ 1 - \exp \left( - \hbar \omega / \tau \right) \right] \; d\omega.$$
+
+		Substituting $x = \hbar \omega / \tau$, 
+
+		\begin{gather*}
+		F = \frac{V \tau}{c^3 \pi^2} \left( \frac{\tau}{\hbar} \right)^3 \int \limits_0^\infty x^2 \log (1 - e^{-x}) \; dx = \frac{ V \tau^4}{ c^3 \hbar^3 \pi^2} \left[ \left. \frac{1}{3}\log(1 - e^{-x} )  x^3 \right\rvert_0^\infty - \frac{1}{3} \int\limits_0^\infty \frac{x^3 e^{-x}}{1 - e^{-x}} \; dx \right] \\
+		F = - \frac{ V \tau^4}{3  c^3 \hbar^3 \pi^2} \int\limits_0^\infty \frac{x^3}{e^{x} - 1} \; dx = - \frac{ V \tau^4}{3  c^3 \hbar^3 \pi^2}  \frac{\pi^4}{15} = - \frac{ V \tau^4 \pi^2}{45  c^3 \hbar^3},
+		\end{gather*}
+
+		where I've looked up the value of the dimensionless integral.
+
+		\item
+
+		The radiation pressure is then
+
+		$$p = - \frac{\partial F}{\partial V} = \frac{ \tau^4 \pi^2}{45  c^3 \hbar^3} = \frac{u}{3},$$
+
+		where $u$ is the energy density of the photon gas, $u = \tau^4 \pi^2 / 15  c^3 \hbar^3$. Compare this to the monatomic ideal gas, where $p = 2u/3$. The radiation pressure is greater for the ideal gas than the photon gas.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		The flux incident on the middle plane is $J_u + J_l$, and the flux emitted from the middle plane is $2J_m$, so 
+
+		$$\sigma_B(T_u^4 + T_l^4) = 2 \sigma_B T_m^4,$$
+
+		or 
+
+		$$T_m = \left[ \frac{1}{2}(T_u^4 + T_l^4) \right]^{1/4}.$$
+
+		Now, the flux between the upper plane and the middle plane is
+
+		$$J_{net} = J_u - J_m = \sigma_B T_u^4 - \frac{\sigma_B}{2} \left( T_u^4 + T_l^4 \right) = \frac{\sigma_B}{2} \left( T_u^4 - T_l^4\right),$$
+
+		which is half of the flux without the middle plane. Likewise, the flux between the middle plane and the lower plane is
+
+		$$J_{net} = J_m - J_l =  \frac{\sigma_B}{2} \left( T_u^4 + T_l^4 \right) - \sigma_B T_l^4 - = \frac{\sigma_B}{2} \left( T_u^4 - T_l^4\right).$$
+
+		\item
+
+		The radiation from the upper surface will bounce back and forth, and with each successive reflection, the flux will be reduced by a factor of $(1 - \epsilon)$. However, since the radiation alternates direction as it bounces back and forth, the even-indexed terms will contribute positive flux and the odd-indexed terms will contribute negative flux, so the net flux due to this surface is
+
+		$$F_u = \sigma_B T_u^4 \left[ \epsilon - \epsilon(1-\epsilon) + \epsilon (1-\epsilon)^2 - \ldots \right] = \epsilon \sigma_B T_u^4 \sum \limits_{n=0}^\infty (-1)^n(1-\epsilon)^n = \left( \frac{\epsilon}{2-\epsilon} \right) \sigma_B T_u^4.$$
+
+		Symmetrically, for the lower surface, only the odd-indexed terms will contribute positive flux. So the net flux due to this surface is
+
+		$$F_l = \sigma_B T_l^4 \left[ -\epsilon + \epsilon(1-\epsilon) - \epsilon (1-\epsilon)^2 + \ldots \right] = -\epsilon \sigma_B T_l^4 \sum \limits_{n=0}^\infty (-1)^n(1-\epsilon)^n = -\left( \frac{\epsilon}{2-\epsilon} \right) \sigma_B T_l^4.$$
+
+		Thus, the net flux in the middle region is
+
+		$$F = \left( \frac{\epsilon}{2-\epsilon} \right) \sigma_B (T_u^4 - T_l^4).$$
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		Consider photon modes indexed by $j$. Each mode has $s_j$ photons of energy $\hbar \omega_j$. Then the total energy is
+
+		$$U = \sum \limits_j s_j \hbar \omega_j,$$
+
+		thus the pressure is
+
+		$$p = -\frac{\partial U}{\partial V} = - \sum \limits_j s_j \hbar \frac{\partial \omega_j} {\partial V}.$$
+
+		Consider a cube of side length length $L$, volume $L^3$. Imposing periodic boundary conditions, a half-integer number of wavelengths must fit in the side length, so $\lambda_j = 2L / j$, so the (angular) frequency is $\omega_j = 2\pi c / \lambda_j = j\pi c/ L = j \pi c V^{-1/3}.$ Then
+
+		$$\frac{\partial \omega_j}{\partial V} = -\frac{j \pi c}{V^{4/3}} = - \frac{\omega_j}{3V}.$$
+
+		The pressure is then 
+
+		$$p = \frac{1}{3V} \sum \limits_j s_j \hbar \omega_j = \frac{U}{3V} = \frac{u}{3},$$
+
+		as previously calculated in problem 3(b).
+
+		\item
+
+		See 3(c).
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		Starting from the fundamental thermodynamic relation $dU = \tau d\sigma - p dV$, we divide by $d \tau$. Holding $V$ constant implies $dV = 0$, thus
+
+		$$ \left( \frac{\partial U}{ \partial \tau} \right)_V = \tau \left( \frac{\partial \sigma}{\partial \tau} \right)_V,$$
+
+		or $C_V / \tau = (\partial \sigma / \partial \tau)_V.$
+
+		\item
+
+		$$\left( \frac{\partial \sigma}{\partial V} \right)_\tau = - \frac{\partial^2 F}{\partial \tau \partial V},$$
+
+		and 
+
+		$$\left( \frac{\partial p}{\partial \tau} \right)_V = - \frac{\partial^2 F}{\partial V \partial \tau},$$
+
+		thus
+
+		$$\left( \frac{\partial \sigma}{\partial V} \right)_\tau  = \left( \frac{\partial p}{\partial \tau} \right)_V.$$
+
+		\item
+
+		Starting from
+
+		$$\frac{\partial^2 \sigma}{\partial V \partial \tau} = \frac{\partial^2 \sigma}{\partial \tau \partial V},$$
+
+		we see that
+
+		$$\frac{\partial^2 \sigma}{\partial \tau \partial V} = \frac{\partial}{\partial \tau} \left( \frac{\partial \sigma}{\partial V} \right)_\tau = \frac{\partial^2 p}{\partial \tau ^2} = \frac{1}{3} \frac{\partial ^2u}{\partial \tau^2},$$
+
+		since $p = u/3$. Also,
+
+		$$\frac{\partial^2 \sigma}{\partial V \partial \tau} = \frac{\partial}{\partial V} \left( \frac{\partial \sigma}{\partial \tau} \right)_V = \frac{\partial}{\partial V}  \left( \frac{C_V}{\tau} \right) = \frac{1}{\tau} \frac{\partial^2 U}{\partial V \partial \tau} = \frac{1}{\tau} \frac{\partial u}{\partial \tau},$$
+
+		since $\partial U / \partial V = u$. Now $u$ is independent of volume, so we can write this as a second-order ordinary differential equation
+
+		$$\frac{\partial u}{\partial \tau} = \frac{\tau}{3} \frac{\partial^2 u}{\partial \tau^2}.$$
+
+		We see that $u(\tau) \sim \tau^4$ is a solution to this differential equation, as the Stefan-Boltzmann law shows.
+
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

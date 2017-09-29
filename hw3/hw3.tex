@@ -1,0 +1,297 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage[parfill]{parskip}
+
+\newcommand{\heading}[1]{\bigskip \textbf{#1}}
+\DeclareMathOperator{\sech}{sech}
+
+\title{Physics 112 Problem Set 3 \\ \large{Holzapfel, Section 102}}
+\author{Sahil Chinoy}
+\date{September 25, 2017}
+
+\begin{document}
+\maketitle{}
+
+\begin{enumerate}
+
+	\item 
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		First, note that
+
+		$$\langle (\epsilon - \langle \epsilon \rangle )^2 \rangle = \langle (\epsilon^2 - 2 \epsilon \langle \epsilon \rangle + \langle \epsilon \rangle ^2 ) \rangle = \langle \epsilon^2 \rangle - \langle \epsilon \rangle ^2$$
+
+		since expectation is a linear operator, so $\langle \epsilon \langle \epsilon \rangle \rangle = \langle \epsilon \rangle ^2.$
+
+		Now,
+
+		$$U = \frac{ \sum_s \epsilon_s \exp(-\epsilon_s / \tau) }{Z},$$
+
+		so
+
+		$$\frac{\partial U}{\partial \tau} = \frac{(1 / \tau^2) Z \sum_s \epsilon_s^2 \exp(-\epsilon_s / \tau) - (1 / \tau^2 ) \left(\sum_s \epsilon_s \exp(-\epsilon_s / \tau) \right)^2}{Z^2},$$
+
+		thus $$\tau^2 \left(\frac{\partial U}{\partial \tau} \right) = \frac{\sum_s \epsilon_s^2 \exp(-\epsilon_s / \tau)}{Z} - \left( \frac{\sum_s \epsilon_s \exp(-\epsilon_s / \tau)}{Z} \right)^2 = \langle \epsilon^2 \rangle - \langle \epsilon \rangle ^2.$$
+
+		\item 
+
+		For an ideal gas, $U = \frac{3}{2} N \tau$, thus $\langle (\Delta U)^2 \rangle = \frac{3}{2} N \tau^2$. So
+
+		$$\frac{\sqrt{\langle (\Delta U)^2 \rangle}}{U} = \sqrt{\frac{2}{3N}}.$$
+
+		The fluctuations become 10 percent of the total energy for $N = \frac{2}{3} (10 \%)^{-2} = 67.$ So it takes few particles for the fluctuations in energy to become negligible.
+
+	\end{enumerate}
+
+	\item 
+
+	\begin{enumerate}[(a)]
+
+		\item 
+
+		We sum over energy levels, multiplying each energy level by its degeneracy (multiplicity)
+
+		$$Z_R(\tau) = \sum \limits_{j=0}^{\infty} g(j) \exp(\epsilon_j / \tau) = \sum \limits_{j=0}^{\infty} (2j+1) \exp(-j(j+1) \epsilon_0 / \tau).$$
+
+		\item
+
+		For $\tau \gg \epsilon_0$, the terms in the series are so closely spaced that we can approximate the sum with an integral
+
+		$$Z_R(\tau) \approx \int \limits_{j=0}^{\infty} (2j+1) \exp(-j(j+1) \epsilon_0 / \tau) \; dj.$$
+
+		Define $u = j(j+1) \epsilon_0 / \tau$. Then 
+
+		$$Z_R(\tau) = \frac{\tau}{\epsilon_0} \int \limits_{u=0}^{\infty} \exp(-u) \; du = \frac{\tau}{\epsilon_0}.$$
+
+		\item
+
+		For $\tau \ll \epsilon_0$, the terms in the series die off quickly, so we can approximate the true partition function with just the first two terms
+
+		$$Z_R(\tau) \approx 1 + 3\exp(-2 \epsilon_0 / \tau).$$
+
+		\item
+
+		The energy $U = \tau^2 \frac{ \partial \log Z}{\partial \tau}$, so in the limit $\tau \gg \epsilon_0$, $\log Z = (\log \tau - \log \epsilon_0)$ and 
+
+		$$U = \tau^2 \frac{1}{\tau} = \tau.$$
+
+		In the limit $\tau \ll \epsilon_0$,
+
+		$$U = \tau^2 \frac{3\exp(-2\epsilon_0/\tau) (2\epsilon_0 / \tau^2)}{1 + 3\exp(-2\epsilon_0 / \tau)} = \frac{6 \epsilon_0 \exp(-2\epsilon_0 / \tau)}{1 + 3\exp(-2\epsilon_0/\tau)}.$$
+
+		Heat capacity is defined as $C_V = \left(\frac{\partial U}{\partial \tau}\right)_V$, so in the limit $\tau \gg \epsilon_0$, $C_V = 1.$
+
+		In the limit $\tau \ll \epsilon_0$, 
+
+		\begin{gather*}
+		C_V = 6\epsilon_0 \left( \frac{\exp(-2\epsilon_0/\tau)(2 \epsilon_0 / \tau^2) (1 + 3\exp(-2\epsilon_0/\tau)) - (\exp(-2\epsilon_0/\tau))(3 \exp(-2\epsilon_0/\tau))(2\epsilon_0 / \tau^2)}{(1 + 3\exp(-2\epsilon_0/\tau))^2} \right) \\
+		C_V = 12 \left( \frac{\epsilon_0}{\tau} \right)^2 \left( \frac{\exp(-2\epsilon_0/\tau)} {( 1 + 3 \exp(-2\epsilon_0/\tau))^2} \right)
+		\end{gather*}
+
+		but for $\tau \ll \epsilon_0$, $3\exp(-2\epsilon_0/\tau) \ll 1$, so
+
+		$$C_V \approx 12 \left( \frac{\epsilon_0}{\tau} \right)^2 \exp(-2\epsilon_0/\tau).$$
+
+		\item
+
+		See attached.
+
+	\end{enumerate}
+
+	\item 
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		Since each open link has energy $\epsilon$, and we have $s \in [0, N]$ open links, the partition function is
+
+		$$Z = \sum \limits_{s=0}^{N} \exp(-s\epsilon/\tau),$$
+
+		and the sum of this geometric series is just
+
+		$$Z = \frac{1 - \exp(-(N+1)\epsilon/\tau)}{1 - \exp(-\epsilon/\tau)}.$$
+
+		Now, we calculate the (expected) energy of the system
+
+		\begin{gather*}
+		U = -\tau^2 \frac{\partial \log Z}{\partial \tau} \\
+		= \left[ -\tau^2 \frac{1 - \exp(-\epsilon/\tau)}{1 - \exp(-(N+1)\epsilon/\tau)} \right] \times \\ \left[ \frac{-(N+1)(\epsilon/\tau^2) \exp(-(N+1)\epsilon/\tau)(1-\exp(-\epsilon/\tau) + (\epsilon/\tau^2)\exp(-\epsilon/\tau)(1 - \exp(-(N+1)\epsilon/\tau)) }{(1 - \exp(-\epsilon/\tau))^2} \right] \\
+		= \frac{-\epsilon  \exp(\epsilon/\tau)}{\exp(\epsilon/\tau) - \exp(-N\epsilon/\tau)} \frac{(N+1)\exp(-N\epsilon/\tau)(1 - \exp(-\epsilon/\tau)) - (1 - \exp(-(N+1)\epsilon/\tau))}{\exp(\epsilon/\tau) - 1}.
+		\end{gather*}
+
+		For $\epsilon \gg \tau$, $\exp(-\epsilon/\tau) \to 0$, $\exp(-N\epsilon/\tau) \to 0$, and $\exp(2\epsilon / \tau) \gg 1$, so
+
+		\begin{gather*}
+		U \approx \frac{-\epsilon \exp(\epsilon/\tau)}{\exp(2\epsilon / \tau)}(-1) = - \epsilon \exp(-\epsilon / \tau).
+		\end{gather*}
+
+		Since each link has energy $\epsilon$, the expected number of open links is $\langle s \rangle = -U/\epsilon \approx \exp(-\epsilon/\tau)$.
+
+		\item
+
+		If the zipper can be opened from the right or the left, there are $(s+1)$ ways to achieve a state with $s$ open links (except there is still only one way to achieve a state with all $N$ links open). So the partition function is
+
+		\begin{multline*}
+		Z = \left[ \sum \limits_{s=0}^{N-1} (s+1) \exp(-s\epsilon/\tau) \right] + \exp(-N\epsilon/\tau) = \sum \limits_{s=0}^{N} \exp(-s\epsilon/\tau) + \sum \limits_{s=0}^{N-1} s \exp(-s\epsilon/\tau) \\
+		= \frac{1 - \exp(-(N+1)\epsilon/\tau)}{1 - \exp(-\epsilon/\tau)} - \frac{\exp((1-N) \epsilon/\tau) (\exp(\epsilon/\tau)N - \exp(N\epsilon/\tau) - N +1 )}{(\exp(\epsilon/\tau) - 1)^2}.
+		\end{multline*}
+
+	\end{enumerate}
+
+	\item 
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		The length of the chain is the number of ``excess links'' in either the right or left direction, mutiplied by the length of a single link. Let $N_R$ be the total number of links facing right, and $N_L$ be the total number of links facing left, with $N = N_R + N_L$.
+
+		First, consider $N_R > N_L$. So $l = (N_R - N_L) \rho$, which implies $2s = N_R - N_L$. The total number of ways to arrange these $N$ links, $N_R$ facing right and $N_L$ facing left, is
+
+		$$g_R = \frac{N!}{(N_L)!(N_R)!} = \frac{N!}{(\frac{1}{2}N + s)!(\frac{1}{2}N - s)!}.$$
+
+		But the situation is exactly symmetric for $N_L < N_R$. That is, we can have a chain of the same length with $N_L > N_R$. So
+
+		$$g = g_L + g_R = \frac{2N!}{(\frac{1}{2}N + s)!(\frac{1}{2}N - s)!}.$$
+
+		\item
+
+		The entropy is
+
+		$$
+		\sigma(s) = \log(g(N, s)) = \log(2N!) - \log \left[\left(\frac{1}{2}N + s \right)! \right] - \log \left[\left(\frac{1}{2}N - s \right)! \right].$$
+
+		Using the Stirling approximation, 
+
+		\begin{align*}
+		\sigma(s) &= \log(2N!) \\ 
+		& - \left[ \left(\frac{1}{2}N + s \right) \log \left(\frac{1}{2}N + s \right) - \left(\frac{1}{2}N + s \right) + \left(\frac{1}{2}N - s \right) \log \left(\frac{1}{2}N - s \right) - \left(\frac{1}{2}N - s \right) \right] \\
+		\sigma(s) &= \log(2N!) + N \\ &- \left[ \left(\frac{1}{2}N + s \right)\left( \log \left(\frac{N}{2} \right) + \log \left(1 + \frac{2s}{N} \right) \right) + \left(\frac{1}{2}N - s \right)\left( \log \left(\frac{N}{2} \right) + \log \left(1 - \frac{2s}{N} \right) \right) \right].
+		\end{align*}
+
+		Since $s \ll N$, we use the approximation $\log(1 + x) \approx x$ for small $x$.
+
+		\begin{gather*}
+		\sigma(s) = \log(2N!) + N - \left[ \left(\frac{1}{2}N + s \right)\left( \log \left(\frac{N}{2} \right) + \frac{2s}{N} \right) + \left(\frac{1}{2}N - s \right)\left( \log \left(\frac{N}{2} \right) - \frac{2s}{N} \right) \right] \\
+		\sigma(s) = \log(2N!) + N - \left[ N \log \left( \frac{N}{2} \right) + \frac{4s^2}{N^2} \right]
+		\end{gather*}
+
+		Note that
+
+		$$N\log \left(\frac{N}{2} \right) - N = 2\left( \frac{N}{2} \log \left(\frac{N}{2} \right) - \frac{N}{2} \right) \approx 2\log\left(\left(\frac{N}{2}\right)!\right) = \log\left[\left( \left(\frac{N}{2}\right)! \right)^2\right]$$
+
+		and 
+
+		$$\log(2N!) - \log\left[\left( \left(\frac{N}{2}\right)! \right)^2\right] = \log [2 g(N, 0)].$$
+
+		Since $s^2 = l^2 / 4p$, 
+
+		$$\sigma(l) = \log [2 g(N, 0)] - \frac{l^2}{N \rho^2}.$$
+
+		\item
+
+		Taking the derivative, $(\partial \sigma / \partial l)_U = - 2l / {N \rho^2}$, and since $-f / \tau = (\partial \sigma / \partial l)_U$, $f = 2l\tau / N \rho^2$.
+
+	\end{enumerate}
+
+	\item 
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		Distinguishable: $Z = Z_a^{N_a}Z_b^{N_b} / N_a! N_b!$. Indistinguishable: $Z = Z_a^{N_a}Z_b^{N_b} / (N_a + N_b)!$.
+
+		\item
+
+		The free energy $F = -\tau \log Z$. Assume $Z_a = Z_b$, and note that $N = N_a + N_b$. In the distinguishable case, using the Stirling approximation,
+
+		$$\log Z_{dist} = N \log Z_a - (N_a \log N_a - N_a + N_b \log N_b - N_b),$$
+
+		and in the indistinguishable case
+
+		$$\log Z_{indist} = N \log Z_a - (N \log N - N),$$
+
+		where $Z_a$ is the single-particle entropy, which for an ideal gas is $Z_a = (m \tau / 2 \pi h)^{3/2} V$. Calculation of the free energy is trivial.
+
+		\item
+
+		The entropy is $S = -k_b (\partial F / \partial \tau) = k_b( \log Z + \tau \partial (\log Z) / \partial \tau)$. Note that the second term is the same for the indistinguishable and distinguishable cases, since $\partial (\log Z_{dist}) / \partial \tau = \partial (\log Z_{indist}) / \partial \tau.$
+
+		So, the difference in entropy between the distinguishable and indistinguishable cases is
+
+		\begin{gather*}
+		\Delta S = k_b( \log Z_{dist} - \log Z_{indist}) = -k_b (N_a \log N_a + N_b \log N_b - (N_a + N_b) \log N) \\
+		\Delta S = -k_b \left[ N_a \log \left( \frac{N_a}{N} \right) + N_b \log \left( \frac{N_b}{N} \right)\right].
+		\end{gather*}
+
+		\item
+
+		The difference in entropy can be expressed
+
+		$$\Delta S = k_b (\log g_{dist} - \log g_{indist} ) = k_b\log(g_{dist}/g_{indist}),$$ so
+
+		$$\frac{g_{dist}}{g_{indist}} = \exp \left(\frac{\Delta S}{k_b} \right).$$
+
+
+
+		When $N_a = N_b = N/2$,
+
+		$$\Delta S = -2 k_b \frac{N}{2} \log \left( \frac{1}{2} \right) = N k_b \log 2.$$
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		$$\langle x \rangle = \frac{ \int \limits_{-\infty}^{\infty} x \exp (-a x^2 / \tau) \; dx  } { \int \limits_{-\infty}^{\infty} \exp (-a x^2 / \tau) \; dx }.$$
+
+		\item
+
+		The top integral in (a) is the integral of an odd function over all real numbers, which evaluates to zero. So $\langle x \rangle = 0$, independent of temperature.
+
+		\item
+
+		$$\langle x \rangle = \frac{ \int \limits_{-\infty}^{\infty} x \exp (-(a x^2 - bx^3) / \tau) \; dx  } { \int \limits_{-\infty}^{\infty} \exp (-(a x^2 - bx^3) / \tau) \; dx }.$$
+
+		\item
+
+		Note that $\exp (bx^3 / \tau) = 1 + (bx^3/ \tau) + \mathcal{O}(b^2)$. So to first order in $b$, 
+
+		$$
+		\langle x \rangle = \frac{ \int \limits_{-\infty}^{\infty} x \exp (-a x^2 / \tau) \exp (bx^3 / \tau ) \; dx  } { \int \limits_{-\infty}^{\infty} \exp (-a x^2 / \tau) \exp (bx^3 / \tau ) \; dx } = \frac{ \int \limits_{-\infty}^{\infty} (x + (bx^4 / \tau)) \exp (-a x^2 / \tau) \; dx  } { \int \limits_{-\infty}^{\infty} (1 + (bx^3/ \tau)) \exp (-a x^2 / \tau) \; dx }.
+		$$
+
+		Now,
+
+		$$\int \limits_{-\infty}^{\infty} (x + (bx^4 / \tau)) \exp (-a x^2 / \tau) \; dx = \frac{3 \sqrt{\pi} b}{4 \tau (a /\tau)^{5/2}},$$
+
+		since the first term is odd, and
+
+		$$\int \limits_{-\infty}^{\infty} (1 + (bx^3/ \tau)) \exp (-a x^2 / \tau) \; dx = \frac{ \sqrt{\pi} }{ (a /\tau)^{1/2}}.$$
+
+		since the second term is odd. So
+
+		$$\langle x \rangle = \frac{3b}{4a^2} \tau,$$
+
+		which implies a thermal expansion coefficient of $3b / 4a^2$.
+
+
+	\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}
