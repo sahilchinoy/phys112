@@ -1,0 +1,324 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage[parfill]{parskip}
+
+\newcommand{\heading}[1]{\bigskip \textbf{#1}}
+\DeclareMathOperator{\sech}{sech}
+
+\title{Physics 112 Problem Set 5 \\ \large{Holzapfel, Section 102}}
+\author{Sahil Chinoy}
+\date{October 9, 2017}
+
+\begin{document}
+\maketitle{}
+
+\begin{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		If the power input is $P$ and the emissivity is $\epsilon$, then the radiated power is $\epsilon P$, which is related to the temperature of the lighbulb by
+
+		$$\epsilon P = A \frac{\pi^2 k^4}{60 \hbar^3 c^2} T^4.$$
+
+		So the surface area of the lighbulb filament for $P = 100 \text{ W}$, $\epsilon = 0.3$, and $T_f = 3500$ K is
+
+		$$A = \frac{60 \hbar^3 c^2 \epsilon P}{\pi^2 k^4 T_f^4} = 3.53 \times 10^{-6} \text{ m}^2.$$
+
+		\item 
+
+		The solid angle subtended by the filament is approximately
+
+		$$\Omega_f = \frac{A}{d^2},$$
+
+		which for $d = 10$ m and $A$ from (a) evaluates to $\Omega_f = 3.53 \times 10^{-8}$ sr. Since the emitted flux is proportional to $T^4$, the ratio of the flux from the source to the flux from the background is
+
+		$$\frac{F_f}{F_b} = \frac{\epsilon \, \Omega_f T_f^4}{\Omega_b T_b^4},$$
+
+		which for $\Omega_b = 4\pi$, $T_f = 3500$ K, $T_b = 300$ K evaluates to $1.6 \times 10^{-5}$.
+
+		Even though the background provides much more energy than the source, the flux from 300 K blackbody radiation is largely concentrated outside the visible frequency band. That's why the room still gets dark when you turn off the lights.
+
+		\item
+
+		The peak of the lightbulb frequency spectrum occurs at $\hbar \nu_{max} = 2.82 kT_f$. At this frequency, the intensity of background radiation from the 300 K blackbody is 
+
+		$$I_{b, \nu_{max}} = \frac{2 h \nu_{max}^3}{c^2 (\exp(2.82 \; T_f / T_b)- 1)} \simeq \frac{2 h \nu_{max}^3}{c^2 (\exp(2.82 \; T_f / T_b))} ,$$
+
+		in the limit where $T_f \gg T_b$. The intensity of the lighbulb is
+
+		$$I_{f, \nu_{max}} = \frac{2 h \nu_{max}^3}{c^2 (\exp(2.82) - 1)}.$$
+
+		Assuming that our eyes are operating at the peak of the lightbulb frequency spectrum, we define the maximum distance one can see the lighbulb as the distance at which the intensity from the lighbulb becomes less than the intensity from the background. This occurs when
+
+		\begin{gather*}
+		\epsilon \Omega_f I_{f, \nu_{max}} = \Omega_b I_{b, \nu_{max}} \\
+		\epsilon \frac{A}{d^2} \frac{2 h \nu_{max}^3}{c^2 (\exp(2.82) - 1)} = 4 \pi \frac{2 h \nu_{max}^3}{c^2 (\exp(2.82 \; T_f / T_b))} \\
+		d = \sqrt{\frac{\epsilon A}{4\pi} \frac{\exp(2.82 \; T_f / T_b)}{\exp(2.82) - 1}}.
+		\end{gather*}
+
+		For the parameters given in the problem, this evaluates to $d = 1440$ m, which seems far too high -- in my experience, it's very difficult to see 0.9 miles in the dark. So, the human eye doesn't really come close to this fundamental physical limitation.
+
+		To improve night vision (assuming the temperature of the filament is fixed), we could \textit{decrease} $T_b$ — essentially, cool down the eye so that the background spectrum frequency peak is even farther from the peak of the lightbulb's spectrum.
+
+	\end{enumerate}
+
+	\item 
+
+	\begin{enumerate}[(a)]
+
+		\item 
+
+		The Debye temperature is given by
+
+		$$T_D = \frac{\hbar c_s}{k} \left( \frac{18 \pi^2}{\alpha} \frac{N}{V} \right)^{1/3},$$
+
+		with $\alpha = 1,$ since liquids have one polarization, and $c_s = 2.383 \times 10^4$ cm/s, as given. Now, given the density $0.145$ g/cm$^3$,
+
+		$$\frac{N}{V} = \frac{(0.145 \text{ g/cm}^3) (6.022 \times 10^{23} \text{ He atoms/mol})}{4.0026 \text{ g/mol}} = 2.182 \times 10^{22} \text{ He atoms/cm}^3,$$
+
+		thus $T_D = 28.6$ K.
+
+		\item
+
+		In class, we found that the heat capacity is given by
+
+		$$C_V = \frac{12 \pi^4}{5} \left(\frac{T}{T_D}\right)^3 N k,$$
+
+		so substituting in the expression for the Debye temperature,
+
+		$$C_V = \frac{2 \pi^2}{15} \frac{k^4 T^3}{(\hbar c_s)^3}V,$$
+
+		and since mass density $\rho = m/V$, the heat capacity per unit mass is given by
+
+		$$\frac{C_V}{m} = \frac{2 \pi^2}{15} \frac{k^4 T^3}{\rho (\hbar c_s)^3} = 0.0208 \times T^3 \text{ J/g} \cdot \text{K}.$$
+
+		This is extremely close to the measured value of $0.0204 \times T^3 \text{ J/g} \cdot \text{K}$.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		If $i$ denotes the initial state of the universe (when the decoupling occurred) and $f$ the final (current) state, 
+
+		$$\tau _i V_i^{1/3} = \tau_f V_f^{1/3} \implies \left( \frac{V_i}{V_f} \right)^{1/3} = \frac{\tau_f}{\tau_i} = \frac{T_f}{T_i}.$$
+
+		Assuming the universe is spherically symmetric, $V \propto r^3,$ thus
+
+		$$r_i = \frac{T_f}{T_i} r_f,$$
+
+		with $T_i = 3000$ K, as given, and $T_f = 2.73$ K, the current temperature of the universe. So $r_i = (10^{-3}) r_f$.
+
+		Given that the radius is a linear function of time, $r = \alpha t$, this also implies that $t_i = (10^{-3}) t_f,$ or that the decoupling took place at 1/1000 the current age of the universe.
+
+		\item
+
+		Define $b = \tau V^{1/3}$, which is constant during the expansion. Now, from the expression for the energy,
+
+		$$\frac{U}{V} = \frac{\pi^2}{15 \hbar^3 c^3} \tau^4 = \frac{\pi^2}{15 \hbar^3 c^3} b^4 V^{-4/3} \implies U = \frac{\pi^2}{15 \hbar^3 c^3} b^4 V^{-1/3},$$
+
+		and $W = -\Delta U = -(U_f - U_i)$, so
+
+		$$W = - \frac{\pi^2}{15 \hbar^3 c^3} b^4 (V_f^{-1/3} - V_i^{-1/3}) = \frac{\pi^2}{15 \hbar^3 c^3} b^4 \left( \frac{\tau_i}{b} - \frac{\tau_f}{b} \right) = \frac{\pi^2}{15 \hbar^3 c^3} \tau_i^3 V_i (\tau_i - \tau_f).$$
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		$$\langle x^2 \rangle = \sum_k \frac{E_k}{N m \omega_k^2}$$
+
+		\item
+
+		$$E_k = \left(n_k + \frac{1}{2} \right)\hbar \omega_k$$
+
+		\item
+
+		Converting the sum over modes to an integral over frequencies, where we cut off the integral at the Debye frequncy $\omega_D$,
+
+		$$\langle x^2 \rangle = \int \limits_0^{\omega_D} \frac{(n_k + 1/2) \hbar \omega}{N m \omega^2} D(\omega) \; d\omega.$$
+
+		For a solid, there are three possible polarizations, so the density of states is
+
+		$$D(\omega) = \frac{3 V}{2\pi^2 c_s^3} \omega^2.$$
+
+		Further, the number of atoms at a given frequency is given by $n(\omega) = (\exp(\hbar \omega / kT) - 1)^{-1}.$ Then the mean square displacement is 
+
+		$$\langle x^2 \rangle = \frac{3V \hbar}{Nm 2\pi^2 c_s^3}\int \limits_0^{\omega_D} \omega\left( \frac{1}{\exp(\hbar \omega/kT) - 1} + \frac{1}{2} \right) \; d\omega.$$
+
+		From the expression for the Debye temperature, we know
+
+		$$\frac{V}{N} = 6 \pi^2 \left(\frac{\hbar c_s}{kT_D} \right)^3,$$
+
+		and if we define $x = \hbar \omega / kT$, then
+
+		$$\langle x^2 \rangle = \frac{9 \hbar^2 T^2}{mkT_D^3} \int \limits_0^{T_D/T} x \left( \frac{1}{\exp(x) - 1} + \frac{1}{2} \right) \; dx,$$
+
+		since $x_D = \hbar \omega_D / kT = T_D / T.$
+
+		\item
+
+		In the high-temperature limit, $x \to 0$, so $\exp(x) \to (1 +x)$, thus to lowest order in $x$ the integrand is 1 and the integral evaluates to $T_D/ T$, thus
+
+		$$\langle x^2 \rangle = \frac{9 \hbar^2 T^2}{mkT_D^3} \left(\frac{T_D}{T} \right) = \frac{9 \hbar^2 T}{mkT_D^2}.$$
+
+		\item
+
+		\begin{align*}
+		\sqrt{\langle x^2 \rangle} = \frac{a}{10} \\
+		\sqrt{\frac{9 \hbar^2 T_{melt}}{m k T_D^2}} = \frac{a}{10} \\
+		T_{melt} = \frac{a^2 mk T_D^2}{900 \hbar^2}
+		\end{align*}
+
+		\item
+
+		In the low-temperature limit, the contribution from the zero-point energy is 
+
+		$$\langle x^2 \rangle = \frac{9 \hbar^2 T^2}{mkT_D^3} \int \limits_0^{T_D/T} \frac{x}{2} \; dx = \frac{9 \hbar^2 T^2}{mkT_D^3} \left( \frac{T_D^2}{4T^2} \right) = \frac{9 \hbar^2}{4 mkT_D}.$$
+
+		\item
+
+		With $T_D = 75$ K, for neon ($m = 20.18$ amu) at $T = 0$, $\sqrt{\langle x^2 \rangle} = 2.7 \times 10^{-11}$ m $= 0.27$ angstrom.
+
+
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		The partition function for one two-state spin system is
+
+		$$Z_1 = e^{-mB/\tau} + e^{mB/\tau} = 2\cosh(mB/\tau)$$
+
+		and thus for $N$ identical systems is $Z = (2\cosh(mB/\tau))^N$. So the free energy is
+
+		$$F = -\tau \log Z = -\tau N \log(2\cosh(mB/\tau)) = -\tau N \left[\log2 + \frac{1}{2} \left( \frac{mB}{\tau} \right)^2 + \mathcal{O}\left( \frac{mB}{\tau} \right)^4 \right],$$
+
+		thus the entropy is
+
+		$$\sigma = -\frac{\partial F}{\partial \tau} = N\left[ \log 2 - \frac{1}{2}\left(\frac{mB}{\tau} \right)^2 + \mathcal{O}\left( \frac{mB}{\tau} \right)^4 \right].$$
+
+		\item
+
+		For $B = 0$, the entropy is $N \log 2$. This makes sense because if there is no external magnetic field, each spin system is equally likely to be aligned or anti-aligned with the (nonexistent) magnetic field.
+
+		\item
+
+		In the low-temperature limit, 
+
+		$$U = \frac{3 \pi^4 N k T^4}{5 T_D^3},$$
+
+		and
+
+		$$\frac{1}{T} = \frac{\partial S}{\partial U} \implies S = \int \frac{1}{T} \frac{\partial U}{\partial T} \; dT,$$
+
+		thus
+
+		$$S = \int \frac{12 \pi^4 N k}{5 T_D^3} T^2 \; dT = \frac{4 \pi^4 N k}{5} \left( \frac{T}{T_D} \right)^3.$$
+
+		The total entropy, to second order, is then
+
+		$$S = Nk \left[ \log 2 - \frac{1}{2} \left( \frac{mB}{kT} \right)^2 + \frac{4 \pi^4}{5} \left( \frac{T}{T_D} \right)^3 \right].$$
+
+		\item 
+
+		For a reversible process, $\Delta S = 0$, so
+
+		\begin{gather*}
+		S_i = S_f \\
+		- \frac{1}{2} \left( \frac{mB}{kT_i} \right)^2 + \frac{4 \pi^4}{5} \left( \frac{T_i}{T_D} \right)^3 =  \frac{4 \pi^4}{5} \left( \frac{T_f}{T_D} \right)^3 \\
+		T_f = T_D \left[ \left(\frac{T_i}{T_D} \right)^3 - \frac{5}{8\pi^4} \left( \frac{mB}{kT_i} \right)^2 \right]^{1/3}
+		\end{gather*}
+
+		We see that $T_f < T_i$. This cooling effect occurs because, when the magnetic field is turned on, we have created a state where some spins are aligned with the magnetic field, but when we turn off the field without allowing spins to flip (hence the constant entropy assumption) we preserve the ``order" generated by the magnetic field, which is characteristic of a lower-temperature state.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		The entropy is
+
+		$$S = \frac{k c^3 A}{4 G \hbar} = \frac{k c^3}{4 G \hbar} 4 \pi R_S^2 = \frac{\pi k c^3}{G \hbar} \left( \frac{2GM}{c} \right)^2 = \frac{4 k \pi G}{c \hbar} M^2,$$
+
+		and using the expression $U = Mc^2$, 
+
+		$$S = \frac{4 k \pi G}{c^5 \hbar} U^2.$$
+
+		Thus
+
+		$$\frac{1}{T} = \frac{\partial S}{\partial U} = \frac{8 k \pi G}{c^5 \hbar} U = \frac{8 k \pi G M}{c^3 \hbar},$$
+
+		and 
+
+		$$T = \frac{c^3 \hbar}{8 k \pi G M}.$$
+
+		\item
+
+		From class, the power radiated by a blackbody of area $A$ is 
+
+		$$P = A \frac{\pi^2 k^4}{60 \hbar^3 c^2}T^4.$$
+
+		Substituting the expression for the area and the temperature found in (a),
+
+		$$P = 4 \pi \left( \frac{2GM}{c^2} \right)^2 \frac{\pi^2 k^4}{60 \hbar^3 c^2} \left( \frac{c^3 \hbar}{8 k \pi G M} \right)^4 = \frac{\hbar c^6}{15360 \pi G^2 M^2}.$$
+
+		Now, $P = -dU/dt$, and $U = Mc^2$, so $P = -c^2(dM/dt)$, and
+
+		\begin{gather*}
+		-c^2 \frac{dM}{dt} = \frac{\hbar c^6}{15360 \pi G^2 M^2} \\
+		\int M^2 \; dM =  \int -\frac{\hbar c^4}{15360 \pi G^2} \; dt \\
+		\frac{1}{3}M^3 = B - \frac{\hbar c^4}{15360 \pi G^2} t
+		\end{gather*}
+
+		for some constant of integration $B$. Then
+
+		$$M(t) = \left( 3B - \frac{\hbar c^4}{5120 \pi G^2}t  \right)^{1/3},$$
+
+		and given $M(0) = M_0$, 
+
+		$$M(t) = \left( M_0^3 - \frac{\hbar c^4}{5120 \pi G^2}t  \right)^{1/3}.$$
+
+		\item
+
+		If we define the evaporation time as the time it takes for the black hole to reach $M=0$, then
+
+		$$t_{evap} = \frac{5120 \pi G^2 M_0^3}{\hbar c^4}.$$
+
+		For a black hole of initial mass $M_0 = 2 \times 10^{11}$ kg, $t_{evap} = 6.73 \times 10^{17} \text{ s} = 2.13 \times 10^{10} \text{ yr} = 21 \text{ Gyr}$, longer than the age of the universe.
+
+		\item
+
+		If the temperature of the black hole is less than the background temperature of the universe $T_b$, then it will not radiate. Since mass is inversely proportional to temperature, this puts an upper bound on the mass of a black hole that can evaporate. Specifically, the bound is
+
+		$$M_{max} = \frac{\hbar c^3}{8 \pi G k T_b},$$
+
+		which for $T_b = 2.73$ K evaluates to $4.5 \times 10^{22}$ kg.
+
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
