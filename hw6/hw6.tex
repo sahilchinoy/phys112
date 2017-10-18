@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage[parfill]{parskip}
+
+\newcommand{\heading}[1]{\bigskip \textbf{#1}}
+\DeclareMathOperator{\sech}{sech}
+
+\title{Physics 112 Problem Set 6 \\ \large{Holzapfel, Section 102}}
+\author{Sahil Chinoy}
+\date{October 18, 2017}
+
+\begin{document}
+\maketitle{}
+
+\begin{enumerate}
+
+	\item
+
+	The centrifugal force on an atom of the gas is $F_c(r) = M\omega^2 r$, so the potential energy due to the rotation is $U_c(r) = - M \omega^2 r^2 / 2.$ Let $\mu_{ext}(r) = U_c$, and note that $\mu_{int}(r)  = \tau \log(n(r)/n_{Q})$ for an ideal gas. Then, $\mu(r) = \mu_{ext} + \mu_{int}$ needs to be constant in the cylinder, so
+
+	\begin{gather*}
+	\mu(0) = \mu(r) \\
+	\tau \log \left( \frac{n(0)}{n_Q} \right) = - \frac{M \omega^2 r^2}{2} +  \tau \log \left( \frac{n(r)}{n_Q} \right) \\
+	\log \left( \frac{n(r)}{n(0)} \right) = \frac{M \omega^2 r^2}{2 \tau} \\
+	n(r) = n(0) \exp \left( \frac{M \omega^2 r^2}{2 \tau} \right).
+	\end{gather*}
+
+	\item
+
+	The potential difference is given by
+
+	\begin{gather*}
+	\mu_{inside} - \mu_{outside} \\
+	\tau \log \left( \frac{n_{inside}}{n_Q} \right) - \tau \log\left( \frac{n_{outside}}{n_Q} \right) \\
+	\tau \log \left( \frac{n_{inside}}{n_{outside}} \right).
+	\end{gather*}
+
+	At 300 K, this is approximately
+	$$
+	k \times (300 \text{ K}) \times \log (10^4) = 3.8 \times 10^{-20} \text{ J} = 0.24 \text{ eV} 
+	$$
+
+	and since each $\text{K}^+$ atom has charge $e$, this corresponds to an energy difference of 0.24 V.
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		If 90\% of the sites are occupied by oxygen, then the probability of a single Hb site being occupied by oxygen is 0.9, so
+
+		\begin{gather*}
+		0.9 = \frac{\lambda(\text{O}_2)\exp(-\epsilon_A / \tau)}{1 + \lambda(\text{O}_2)\exp(-\epsilon_A / \tau)} \\
+		0.9 = 0.1 \lambda(\text{O}_2)\exp(-\epsilon_A / \tau) \\
+		\epsilon_A = \tau \log \left( \frac{\lambda(\text{O}_2)}{9} \right)
+		\end{gather*}
+
+		which, for $T = 37 + 273 = 310$ K and $\lambda(\text{O}_2) = 10^{-5}$, evaluates to $\epsilon_A = -5.87 \times 10^{-20}$ J $= -0.366$ eV.
+
+		\item
+
+		Now, we admit carbon monoxide, and if 10\% of the sites are occupied by oxygen, then
+
+		\begin{gather*}
+		0.1 = \frac{\lambda(\text{O}_2)\exp(-\epsilon_A / \tau)}{1 + \lambda(\text{O}_2)\exp(-\epsilon_A / \tau) + \lambda(\text{CO})\exp(-\epsilon_B / \tau)} \\
+		0.1 + 0.1\lambda(\text{CO})\exp(-\epsilon_B / \tau) = 0.9\lambda(\text{O}_2)\exp(-\epsilon_A / \tau) \\
+		\exp(-\epsilon_B / \tau) = \frac{9\lambda(\text{O}_2)\exp(-\epsilon_A / \tau) - 1}{\lambda(\text{CO})} \\
+		\epsilon_B = \tau \log \left(\frac{\lambda(\text{CO})}{9\lambda(\text{O}_2)\exp(-\epsilon_A / \tau) - 1} \right) 
+		\end{gather*}
+
+		which, for $T = 310$ K, $\lambda(\text{CO}) = 10^{-7}$ and $\lambda(\text{O}_2)$ and $\epsilon_A$ as previously, evaluates to $\epsilon_B = -8.78 \times 10^{-20} \text{ J} = -0.548$ eV.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		If 
+
+		$$\mathcal{Z} = \sum _{ASN} \exp \left( \frac{N\mu - \epsilon}{\tau} \right)$$
+
+		then
+
+		$$\frac{\partial^2 \mathcal{Z}}{\partial \mu^2} = \sum_{ASN} \frac{N^2}{\tau^2} \exp \left( \frac{N\mu - \epsilon}{\tau} \right).$$
+
+		So 
+
+		$$\frac{\tau^2}{\mathcal{Z}} \frac{\partial^2 \mathcal{Z}}{\partial \mu^2} = \frac{\sum \limits_{ASN} N^2 \exp ((N\mu - \epsilon) / \tau)}{\mathcal{Z}} = \langle N^2 \rangle.$$
+
+		\item
+
+		If 
+
+		$$\langle N \rangle = \frac{\tau}{\mathcal{Z}} \left( \frac{\partial \mathcal{Z}}{\partial \mu} \right)_{\tau, V} $$
+
+		then 
+
+		$$\tau \frac{\partial \langle N \rangle}{\partial \mu} = \tau^2 \left( -\frac{1}{\mathcal{Z}^2} \left( \frac{\partial \mathcal{Z}}{\partial \mu} \right)_{\tau, V}^2 + \frac{1}{\mathcal{Z}} \left( \frac{\partial^2 \mathcal{Z}}{\partial \mu^2} \right)_{\tau, V} \right) = \langle (\Delta N)^2 \rangle.$$
+
+
+	\end{enumerate}
+
+	\item
+
+	The water vapor at the roots must be in diffusive equilibrium with the water vapor at the uppermost leaves. Note that $\mu_{ext} = Mgh$ and $\mu_{int} = \tau \log (n / n_Q)$. So
+
+	\begin{gather*}
+	\mu(0) = \mu(h) \\
+	\tau \log (n(0) / n_Q) = \tau \log(n(h) / n_Q) + Mgh \\
+	\tau \log(n_0 / rn_0) = Mgh \\
+	h = - \frac{kT}{Mg} \log r.
+	\end{gather*}
+
+	For $T = 298$ K, $r = 0.9$, $M = 18 \text{ amu} = 2.99 \times 10^{-26}$ kg, this evaluates to $h = 1480$ m.
+
+	\item
+
+	Starting from the Sackur-Tetrode equation
+
+	$$\sigma = N\log \left( \frac{V}{N^{5/2}} \left(\frac{4 \pi m U}{3 \hbar^2} \right)^{3/2} \right) + \frac{5}{2}N$$
+
+	and differentiating with respect to $N$,
+
+	\begin{gather*}
+	\left(\frac{\partial \sigma}{\partial N}\right)_{U,V} = \log \left( \frac{V}{N^{5/2}} \left(\frac{4 \pi m U}{3 \hbar^2} \right)^{3/2} \right) + N \frac{N^{5/2}}{V} \left(\frac{3 \hbar^2}{4 \pi m U} \right)^{3/2} V \left( \frac{4 \pi m U}{3 \hbar^2}\right)^{3/2} \left(\frac{-5}{2} \right)^{-7/2} + \frac{5}{2} \\
+	\left(\frac{\partial \sigma}{\partial N}\right)_{U,V} = \log \left(\frac{1}{n} \left( \frac{4 \pi m U}{3 \hbar^2 N} \right)^{3/2} \right) - \frac{5}{2} + \frac{5}{2}.
+	\end{gather*}
+
+	For an ideal gas, $U = 3N\tau/2$, so
+
+	$$\left(\frac{\partial \sigma}{\partial N}\right)_{U,V} = \log \left(\frac{1}{n} \left( \frac{2 \pi m \tau}{\hbar^2} \right)^{3/2} \right) = \log \left( \frac{n_Q}{n} \right)$$
+
+	and
+
+	$$\mu = -\tau \left(\frac{\partial \sigma}{\partial N}\right)_{U,V} = \tau \log \left( \frac{n}{n_Q} \right).$$
+	
+
+\end{enumerate}
+
+\end{document}
