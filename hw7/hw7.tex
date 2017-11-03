@@ -1,0 +1,276 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage[parfill]{parskip}
+
+\newcommand{\heading}[1]{\bigskip \textbf{#1}}
+\DeclareMathOperator{\sech}{sech}
+
+\title{Physics 112 Problem Set 7 \\ \large{Holzapfel, Section 102}}
+\author{Sahil Chinoy}
+\date{October 25, 2017}
+
+\begin{document}
+\maketitle{}
+
+\begin{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		Defining the absolute activity $\lambda = \exp(\mu/\tau)$, the Gibbs sum is
+
+		$$\mathcal{Z} = \sum_{ASN} \exp \left( \frac{N\mu - \epsilon}{\tau} \right) = 1 + \lambda \exp ( - \epsilon / \tau) + \lambda^2 \exp ( - 2\epsilon / \tau ).$$
+
+		Then the average occupancy is 
+
+		$$\langle N \rangle = \lambda \frac{d}{d\lambda} (\log \mathcal{Z}) = \frac{\lambda \exp(-\epsilon/\tau) + 2\lambda^2 \exp(-2\epsilon/\tau)}{\mathcal{Z}}.$$
+
+		\item
+
+		Now, since the state with energy $\epsilon$ is doubly degenerate, the Gibbs sum is
+
+		$$\mathcal{Z} =  1 + 2 \lambda \exp ( - \epsilon / \tau) + \lambda^2 \exp ( - 2\epsilon / \tau ).$$
+
+		Thus
+
+		$$\langle N \rangle = \lambda \frac{d}{d\lambda} (\log \mathcal{Z}) = \frac{2\lambda \exp(-\epsilon/\tau) + 2\lambda^2 \exp(-2\epsilon/\tau)}{\mathcal{Z}}.$$
+
+
+	\end{enumerate}
+
+	\item
+
+	For a single particle, $N=1$, so we will calculate the partition function $Z$, from which we can calculate the mean energy $\langle U \rangle$.
+
+	$$Z = \sum_s \exp(-\epsilon_s / \tau) = \sum_s \exp(-p_sc / \tau).$$
+
+	To convert the sum to an integral, we need an expression for the density of states in momentum space (this is valid since we are in the high-energy limit, $pc \gg Mc^2$)
+
+	$$D(p) \; dp = \frac{1}{8} 4\pi p^2 dp = \frac{1}{2} \pi p^2 \; dp$$
+
+	where the factor of $1/8$ comes from integrating over the positive portion of $p$-space (note that we've assumed spherical symmetry). Then the partition function becomes
+
+	$$Z = \frac{\pi}{2} \int \limits_0^\infty p^2 \exp(-pc / \tau) dp = \frac{\pi \tau^3}{2c^3} \int \limits_0^\infty x^2 \exp(-x) dx = \frac{ \pi \tau^3}{c^3}.$$
+
+	Then the average energy is
+
+	$$\langle U \rangle = \tau^2 \frac{\partial \log Z}{\partial \tau} = \tau^2 \frac{c^3}{\pi \tau^3} \frac{ 3 \pi \tau^2}{c^3} = 3 \tau.$$
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		The pressure of an individual state with energy $\epsilon_s$ is $-(\partial \epsilon_s / \partial V)_N$, so the expected pressure, averaging over all states and normalizing by the partition function, is
+
+		$$p = -\frac{1}{Z} \sum_s \left( \frac{\partial \epsilon_s}{ \partial V} \right)_N \exp(-\epsilon_s / \tau).$$
+
+		\item
+
+		For an ideal gas, 
+
+		$$\epsilon_s = \frac{\hbar^2}{2M} \left( \frac{\pi n}{V^{1/3}} \right)^2$$
+
+		so
+
+		$$\left( \frac{\partial \epsilon_s}{ \partial V} \right)_N = -\frac{2}{3} \frac{\hbar^2}{2M} \frac{(\pi n)^2}{V^{5/3}} = -\frac{2}{3}\frac{\epsilon_s}{V}.$$
+
+		\item
+
+		Using the result from (a), the pressure is
+
+		$$p = \frac{2}{3V} \frac{1}{Z} \sum_s  \epsilon_s \exp(-\epsilon_s / \tau) = \frac{2U}{3V}.$$
+
+		\item
+
+		We know that at $T =0$, the internal energy is $U = 3N \epsilon_F / 5$, where $\epsilon_F$ is the Fermi energy (Kittel 7.10). So $p = 2n \epsilon_F / 5$ at $T =0$. Also, $\epsilon_F = (\hbar^2 / 2m) (3 \pi^2 n)^{2/3}$ (Kittel 7.7).
+
+		With $n = 8 \times 10^{22} \text{ cm}^{-3}$ and $m_e = 9.11 \times 10^{-31}$ kg, this evaluates to $p = 3.4 \times 10^5$ atm.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		The total number of atoms is the sum of the average number of atoms in each orbital, so, defining $\lambda = \exp(\mu / \tau)$
+
+		$$N = \lambda \sum_s \exp(-\epsilon_s / \tau)$$.
+
+		For the states with lower internal energy, $\epsilon_s$ is the same as for an ideal monatomic gas with one internal energy state, so $\sum_s \exp(-\epsilon_s / \tau) = Z_1 = V n_Q$. For the states with greater internal energy, $\epsilon_{s'} = \epsilon_s + \Delta$, so
+
+		$$\sum_{s} \exp \left( \frac{-\epsilon_s - \Delta}{ \tau} \right) = \exp(-\Delta/\tau) Z_1 = \exp(-\Delta/\tau) Vn_Q.$$
+
+		Then
+
+		$$N = \lambda Vn_Q (1 + \exp(-\Delta/\tau))$$
+
+		so
+
+		$$\lambda = \frac{n}{n_Q} \frac{1}{1 + \exp(-\Delta/\tau)}$$
+
+		and
+
+		$$\mu = \tau \log \left( \frac{n}{n_Q} \right) - \tau \log \left(1 + \exp \left( \frac{-\Delta}{\tau} \right) \right).$$
+
+		\item
+
+		The partition function for a single atom is
+
+		$$Z_1 = \sum_s \exp(-\epsilon_s / \tau)$$
+
+		so by the same logic as in (a)
+
+		$$Z_1 = Vn_Q (1 + \exp(-\Delta/\tau)).$$
+
+		Then for $N$ atoms,
+
+		$$Z = \frac{Z_1^N}{N!} = \frac{(Vn_Q)^N}{N!} \left(1 + \exp \left( \frac{-\Delta}{\tau} \right) \right)^N.$$
+
+		Thus
+
+		\begin{gather*}
+		F = -\tau \log Z = -\tau N \log (V n_Q) + \tau N \log N - \tau N - \tau N \log(1 + \exp(- \Delta / \tau)) \\
+		F = \tau N (\log (n / n_Q) - 1) - \tau N \log(1 + \exp(- \Delta / \tau)) \\
+		F = F_{ideal} - \tau N \log(1 + \exp(- \Delta / \tau))
+		\end{gather*}
+
+		where $F_{ideal}$ is the free energy for the ideal gas with one internal energy state.
+
+		\item
+
+		The entropy is given by
+
+		$$\sigma = - \left( \frac{\partial F}{\partial \tau} \right)_V$$
+
+		and recall that the entropy for an ideal gas with one internal energy state is given by $\sigma_{ideal} = N (\log (n_Q / n) + 5/2)$. Thus
+
+		\begin{gather*}
+		\sigma = N \left( \log \left( \frac{n_Q}{n} + \frac{5}{2} \right) \right) + N \log \left( 1 + \exp \left( \frac{- \Delta}{\tau} \right) \right) + N \tau \frac{\exp(-\Delta/\tau)}{1 + \exp(-\Delta /\tau)} \frac{\Delta}{\tau^2} \\
+		\sigma = N \left( \log \left( \frac{n_Q}{n} + \frac{5}{2} \right) \right) + N \log \left( 1 + \exp \left( \frac{- \Delta}{\tau} \right) \right) + \frac{N \Delta}{\tau} \frac{1}{1 + \exp(\Delta /\tau)}.
+		\end{gather*}
+
+		\item
+
+		The pressure is the same as for an ideal gas with one internal energy state,
+
+		$$p = - \left( \frac{\partial F}{\partial V} \right)_\tau = \frac{N\tau}{V},$$
+
+		since we have not introduced any new terms with volume dependence.
+
+		\item
+
+		The heat capacity at constant pressure is
+
+		\begin{gather*}
+		C_p = \tau \left( \frac{\partial \sigma}{\partial T} \right)_p = k_B \tau  \left( \frac{\partial \sigma}{\partial \tau} \right)_p \\
+		C_p = k_B \tau N \frac{\partial }{\partial \tau}\left( \log (n_Q) - \log(n) \right) + Nk_b \tau  \frac{\Delta}{\tau^2}\frac{\exp(-\Delta/\tau)}{1 + \exp(-\Delta/\tau)} \\
+		- Nk_B \tau \frac{\Delta}{\tau^2} \frac{1}{1 + \exp(\Delta /\tau)} + Nk_B \tau \frac{\Delta}{\tau} \frac{\Delta}{\tau^2} \frac{\exp(\Delta /\tau)}{(1 + \exp(\Delta /\tau))^2} \\
+		C_p = Nk_B\tau \left( \frac{3}{2 \tau} - \frac{\partial}{\partial \tau} \log \left( \frac{p}{\tau} \right) \right) + Nk_B \frac{\Delta^2}{\tau^2} \frac{\exp(\Delta /\tau)}{(1 + \exp(\Delta /\tau))^2} \\
+		C_p = \frac{5}{2}N k_B + Nk_B \frac{\Delta^2}{\tau^2} \frac{\exp(\Delta /\tau)}{(1 + \exp(\Delta /\tau))^2}.
+		\end{gather*}
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		Starting from $N = \lambda \sum_s \exp(-\epsilon_s / \tau)$, we know that in the classical limit, we can approximte the sum with an integral. Each momentum state $dp$ takes up a de Broglie wavelength of $h / dp$, and thus occupies an area of $ (h / dp)^2.$ Thus the density of states is $D(p) dp = A (dp)^2 / h^2$, and assuming momentum space is circularly symmetric, $(dp)^2 = 2 \pi p dp$. Also, $p^2 = 2m E$ implies $2p dp = 2m dE$, so
+
+		$$D(E)dE = \frac{2 \pi A m}{h^2} dE.$$
+
+		then
+
+		$$N = \lambda  \sum_s \exp(-\epsilon_s / \tau) = \lambda \frac{2 \pi A m}{h^2} \int \limits_0^\infty \exp(-\epsilon/\tau) d\epsilon = \lambda \frac{2 \pi A m}{h^2} \tau.$$
+
+		Since $\lambda = \exp(\mu / \tau)$, this means
+
+		$$\mu = \tau \log \left( \frac{N h^2}{2 \pi A m \tau}\right).$$
+
+		\item
+
+		We know that each degree of freedom in an atom of three-dimensional ideal gas carries $\tau / 2$ energy, for a total energy of $U = 3N \tau/2$. By analogy, for a two-dimensional gas, $U = N \tau.$
+
+		\item
+
+		The entropy can be calculated from the free energy. From (a), the partition function is
+
+		$$Z_1 = \frac{2\pi A m \tau}{h^2}$$
+
+		and $Z = Z_1^N / N!$, so
+
+		\begin{gather*}
+		F = - \tau \log Z = -N \tau \log \left( \frac{2\pi A m \tau}{h^2} \right) + N \tau \log N - N \tau \\
+		F = -N\tau \left( \log \left( \frac{2\pi A m \tau}{N h^2} \right) + 1 \right).
+		\end{gather*}
+
+		Thus 
+
+		$$\sigma = - \left( \frac{\partial F}{\partial \tau} \right)_V = N \left(  \log \left( \frac{2\pi A m \tau}{N h^2} \right) + 1 \right) + N\tau \frac{1}{\tau} =  N \left(  \log \left( \frac{2\pi A m \tau}{N h^2} \right) + 2 \right).$$
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		Since both electrons and holes have degeneracy 2, and the energy gap is $E_g$, the equilibrium condition $\mu_e + \mu_h = 0$ implies $\log (n_e / 2n_{Q,e}) + \log(n_h / 2n_{Q,h} \exp(-E_g/\tau)) =0$, or
+
+		\begin{gather*}
+		n_e n_h = (2n_{Q,e})(2n_{Q,h}) \exp(-E_g/\tau) \\
+		n_e n_h = 4 (m_e m_h)^{3/2} \left( \frac{\tau}{2 \pi \hbar^2} \right)^3 \exp(-E_g/\tau).
+		\end{gather*}
+
+		In equilibrium, the density of holes and electrons needs to be equal (or more phonons would be produced), so $n_e = n_h$, and
+
+		$$n_e = 2 \left( \frac{\tau \sqrt{m_e m_h}}{2 \pi \hbar^2} \right)^{3/2} \exp(-E_g/2\tau).$$
+
+		\item
+
+		The chemical potential $\mu_e = \tau \log(n_e / 2n_{Q,e})$, so
+
+		\begin{gather*}
+		\mu_e = \tau \log 2 + \frac{3}{2}\tau \log \left( \frac{\tau}{2 \pi \hbar^2} \right) + \frac{3}{2}\tau \log(\sqrt{m_em_h}) - \frac{E_g}{2} - \tau \log 2 - \frac{3}{2}\tau \log \left( \frac{m_e \tau}{2 \pi \hbar^2} \right) \\
+		\mu_e = \frac{3}{4}\tau \log \left( \frac{m_h}{m_e} \right) - \frac{E_g}{2}.
+		\end{gather*}
+
+		\item
+
+		The equilibrium condition reflects just the chemical potential due to the free electrons, since the electrons from donor atoms are not part of the ``gas," so $\log ((n_e' - n_d) / 2n_{Q,e}) + \log(n_h' / 2n_{Q,h} \exp(-E_g/\tau)) =0$, or
+
+		$$
+		(n_e' - n_d) n_h' = (2n_{Q,e})(2n_{Q,h}) \exp(-E_g/\tau) = n_e^2.
+		$$
+
+		Since $n_e' = n_h'$ in equilibrium (which reflects that all electrons can interact with the holes),
+
+		\begin{gather*}
+		n_e'^2 - n_d n_e' - n_e^2 = 0 \\
+		n_e = \frac{n_d + \sqrt{n_d^2  +4n_e^2}}{2} \\
+		n_e = \frac{n_d}{2} + \sqrt{\frac{n_d^2}{4} + n_e^2}.
+		\end{gather*}
+
+
+
+
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

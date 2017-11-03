@@ -1,0 +1,288 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage[parfill]{parskip}
+
+\newcommand{\heading}[1]{\bigskip \textbf{#1}}
+\DeclareMathOperator{\sech}{sech}
+
+\title{Physics 112 Problem Set 8 \\ \large{Holzapfel, Section 102}}
+\author{Sahil Chinoy}
+\date{November 3, 2017}
+
+\begin{document}
+\maketitle{}
+
+\begin{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		Since $\epsilon = \hbar^2 k^2 /2m$ and $k = n\pi/L$ from the periodic boundary condition, $\epsilon = \hbar^2 \pi^2 n^2 / 2mL^2$, or
+
+		$$n = \frac{L}{\pi \hbar} \sqrt{2m\epsilon}.$$
+
+		Then, since $n$-space is one-dimensional, the total number of electrons is $N = 2n$, since each orbital can hold one spin up and one spin down electron. So
+
+		$$N = \frac{2L}{\pi \hbar} \sqrt{2m\epsilon}$$
+
+		thus
+
+		$$\mathcal{D}(\epsilon) = \frac{dN}{d\epsilon} = \frac{L}{\pi\hbar} \sqrt{\frac{2m}{\epsilon}}.$$
+
+		\item
+
+		We know $k_x = n_x \pi /L_x$ and $k_y = n_y \pi / L_x$, and $k^2 = k_x^2 + k_y^2$, so $\epsilon = \hbar^2 \pi^2 n^2 / 2mA$ where $n^2 = n_x^2 + n_y^2$ and $A = L_x L_y$. This gives
+
+		$$n = \frac{1}{\pi \hbar} \sqrt{2m A \epsilon}$$
+
+		Asuming $n$-space is circularly symmetric, the total number of electrons is $N = (1/4) \pi n^2$, where the factor of $1/4$ comes from considering only positive quantum numbers. Thus
+
+		$$N = \frac{Am}{\pi\hbar^2} \epsilon$$
+
+		and
+
+		$$\mathcal{D}(\epsilon) = \frac{dN}{d\epsilon} = \frac{Am}{\pi \hbar^2}.$$
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		If $\epsilon \simeq pc$ and $p = (\pi \hbar / L) n$ where $n = \sqrt{n_x^2 + n_y^2 + n_z^2}$, then $\epsilon \simeq (\pi \hbar c / L) n$. Then the Fermi energy $\epsilon_F$ occurs at some value for the quantum number $n_F$, where $\epsilon_F = (\pi \hbar c / L) n_F$.
+
+		In the ground state, every possible orbital is filled with two electrons (spin up and spin down) up until the quantum number $n_F$. So
+
+		$$N = 2 \left(\frac{1}{8}\right) \int \limits_0^{n_F} 4 \pi n^2 \; dn = 2 \left(\frac{1}{8}\right) \left( \frac{4\pi}{3} \right) n_F^3$$
+
+		where the factor of two comes from the spin degeneracy and the factor of $1/8$ comes from the fact that we're only considering the positive octant of (spherically symmetric) $n$-space. So
+
+		$$n_F = \left(\frac{3N}{\pi}\right)^{1/3}$$
+
+		thus
+
+		$$\epsilon_F = \frac{\pi \hbar c}{L} \left(\frac{3N}{\pi}\right)^{1/3} = \pi \hbar c \left(\frac{3N}{\pi V}\right)^{1/3} = \pi \hbar c \left(\frac{3n}{\pi}\right)^{1/3}$$
+
+		where $n = N/V$ and $V = L^3$.
+
+		\item
+
+		By the same reasoning,
+
+		$$U_0 = 2 \left(\frac{1}{8}\right) \int \limits_0^{n_F} \epsilon(n) \, 4 \pi n^2 \; dn = \frac{\pi^2 \hbar c}{L} \int \limits_0^{n_F}  n^3 \; dn = \frac{\pi^2 \hbar c}{4L} n_F^4$$
+
+		and substituting our expression for $n_F$
+
+		$$U_0 = \frac{\pi^2 \hbar c}{4L} \left(\frac{3N}{\pi}\right)^{4/3} = \frac{\pi^2 \hbar c}{4} \left(\frac{3N}{\pi}\right) \left(\frac{3n}{\pi}\right)^{1/3} = \frac{3}{4}N\epsilon_F.$$
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		$^3$He is made of two protons and one neutron, so the mass of a single $^3$He atom is $m = (2 \times 1.673 + 1.675) \times 10^{-27} = 5.021 \times 10^{-27}$ kg.
+
+		The mass density is given as $0.081$ g cm$^{-3}$, and dividing by the mass, this gives $n = 1.613 \times 10^{28} \text{ m}^{-3}$. 
+
+		So $\epsilon_F = (\hbar^2 / 2m) (3 \pi^2 n)^{2/3} = 6.767 \times 10^{-23}$ J $= 0.422$ meV.
+
+		The average velocity is given by $\epsilon_F = (1/2)m v_F^2$, so $v_f = \sqrt{2 \epsilon_F / m} = 164 $ m/s.
+
+		The Fermi temperature is simply $T_F = \epsilon_F / k_B = 4.90$ K.
+
+		\item
+
+		We showed in class that the heat capacity at low temperature is
+
+		$$C_{el} = \frac{\pi^2}{2}N \left(\frac{k_B T}{T_F} \right)$$
+
+		which evaluates to $C_{el} = 1.01 Nk_bT$, the same order as the experimental value but lower, perhaps because we've failed to account for the heat capacity due to phonon modes.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}[(a)]
+
+		\item
+
+		The virial theorem states that for an inverse-square force law (as in the case of gravitational force), $2 \langle T \rangle = - \langle U_g \rangle$, where $\langle T \rangle$ is the average thermal kinetic energy.
+
+		We found $U_0 = (3/4) N \epsilon_F = (3/4) N \pi \hbar c (3N/\pi V )^{1/3}$ in the ground state, and we will assume that we are trying to find the minimum possible $N$, so $\langle T \rangle = U_0$. Approximating the box used to derive the expression for $\epsilon_F$ as a sphere,
+
+		$$U_0 = \frac{3N \pi \hbar c}{4} \left(\frac{3N}{\pi V}\right)^{1/3} = \frac{3 \pi \hbar c}{4R} \left(\frac{9N^4}{4\pi^2}\right)^{1/3}.$$
+
+		For a sphere of mass $M$ and radius $R$, we showed in class that the internal energy due to gravity is $U_g = -3 GM^2/5R$. If we assume the whole star is ionized hydrogen, then $M = N m_H$, so $U_g = -3GN^2 m_H^2 / 5R$.
+
+		Thus
+
+		$$2  \frac{3\pi \hbar c}{4 R} \left(\frac{9N^4}{4\pi^2}\right)^{1/3} = \frac{3 G N^2 m_H^2}{5R}$$
+
+		or, rearranging,
+
+		$$N = \left( \frac{5 \pi \hbar c}{2 G m_H^2} \left(\frac{9}{4 \pi^2} \right)^{1/3} \right)^{3/2}.$$
+
+		\item
+
+		With $m_H = 1.67 \times 10^{-27}$ kg, this yields $N = 2.31 \times 10^{58}$.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		The magnetic moment is $M = \mu_B(N_{up} - N_{down})/V$. Assuming the gas is in its ground state,
+
+		$$N(\epsilon_F) = \frac{V}{3\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \epsilon_F^{3/2}.$$
+
+		Now, the magnetic field perturbs the energy by $\pm \mu_B B$ depending on whether the spin is up or down. So we can calculate the number of electrons in the spin up state (note the additional factor of $1/2$ because the previous calculation was for both spin up and spin down electrons)
+
+		$$N_{up} = \frac{V}{6\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} (\epsilon_F + \mu_B B)^{3/2}$$
+
+		and the number in the spin down state is
+
+		$$N_{down} = \frac{V}{6\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} (\epsilon_F - \mu_B B)^{3/2}.$$
+
+		So 
+
+		$$N_{up} - N_{down} = \frac{V}{6\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \epsilon_F^{3/2} \left[ \left( 1 + \frac{\mu_B B}{\epsilon_F} \right)^{3/2} - \left( 1 - \frac{\mu_B B}{\epsilon_F} \right)^{3/2} \right]$$
+
+		and since $B \ll \epsilon_F$, $\left( 1 \pm \frac{\mu_B B}{\epsilon_F} \right)^{3/2} \approx 1 \pm \frac{3\mu_B B}{2\epsilon_F}$, so
+
+		$$N_{up} - N_{down} = \frac{3}{2} \frac{V}{6\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \epsilon_F^{3/2} \left( \frac{2 \mu_B B}{\epsilon_F} \right) = \mu_B B \mathcal{D}(\epsilon_F) = \mu_0 \mu_B \mathcal{D}(\epsilon_F)H.$$
+
+		Then
+
+		$$\chi  = \frac{ \mu_0 \mu_B^2 \mathcal{D}(\epsilon_F)}{V}.$$ 
+
+		\item
+
+		We know the density of states at the Fermi energy is $\mathcal{D}(\epsilon_F) = 3N/2\epsilon_F$, so
+
+		$$\chi  = \frac{3 \mu_0 \mu_B^2 n}{2\epsilon_F}.$$ 
+
+		The Bohr magneton is $\mu_B = e\hbar/2m_e = 9.274 \times 10^{-24} \text{ J}/\text{T}$ and the permeability of free space is $\mu_0 = 4\pi \times 10^{-7} \text{ H}/\text{m}$. Given $n = 8.5 \times 10^{28} \text{ m}^{-3}$ and $\epsilon_F = 7.0$ eV $= 1.1 \times 10^{-18}$ J, this evaluates to $\chi = 1.2 \times 10^{-5}$.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		$$N = \int \limits_0^\infty  d\epsilon \mathcal{D}(\epsilon) f(\epsilon) = \frac{V}{2\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \int \limits_0^\infty \frac{\epsilon^{1/2}}{\exp((\epsilon - \mu)/\tau) + 1} d\epsilon$$
+
+		\item
+
+		With $\lambda = \exp(\mu/\tau)$,
+
+		$$N = \frac{V}{2\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \int \limits_0^\infty \epsilon^{1/2}\frac{ \lambda \exp(-\epsilon/\tau)}{1 + \lambda \exp(-\epsilon/\tau)} d\epsilon \simeq \frac{V}{2\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \int \limits_0^\infty \epsilon^{1/2} \lambda \exp(-\epsilon/\tau) (1 - \lambda \exp(-\epsilon/\tau)) d\epsilon $$
+
+		or
+
+		$$N \simeq \frac{V}{2\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \int \limits_0^\infty \epsilon^{1/2} \exp\left( \frac{\mu-\epsilon}{\tau} \right) \left(1 - \exp \left(\frac{\mu -\epsilon}{\tau}\right) \right) d\epsilon.$$
+
+		\item
+
+		Dividing by $V$ and calculating the integral,
+
+		\begin{gather*}
+		n \simeq \frac{1}{2\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \left[ \int \limits_0^\infty  \lambda \epsilon^{1/2}\exp(-\epsilon/\tau) d\epsilon - \int \limits_0^\infty  \lambda^2 \epsilon^{1/2}\exp(-2\epsilon/\tau) d\epsilon \right] \\
+		n \simeq \frac{1}{2\pi^2} \left( \frac{2m \tau}{\hbar^2} \right)^{3/2} \left(\lambda - \frac{\lambda^2}{2^{3/2}} \right) \int \limits_0^\infty x^{1/2}\exp(-x) dx  \\
+		n \simeq 2 \left( \frac{m \tau}{2 \pi \hbar^2} \right)^{3/2}\left(\lambda - \frac{\lambda^2}{2^{3/2}} \right) \\
+		\frac{n}{2n_Q} = \lambda - \frac{\lambda^2}{2^{3/2}}
+		\end{gather*}
+
+		where the approximation is to second order in $\lambda$, and I've looked up the value of the dimensionless integral.
+
+		\item
+
+		Starting from
+
+		$$\frac{n}{2n_Q} = \lambda \left(1 - \frac{\lambda}{2^{3/2}} \right),$$
+
+		we assume $\lambda \ll 1$ and use the approximation $(1-x)^{-1} \approx 1 + x$ for small $x$ to get
+
+		$$\lambda = \frac{n}{2n_Q} \left(1 + \frac{\lambda}{2^{3/2}} \right).$$
+
+		Then
+
+		$$\lambda \left(1 - \frac{n}{2^{5/2} n_Q} \right) = \frac{n}{2n_Q}$$
+
+		and once again, assuming that $n/n_Q \ll 1$,
+
+		$$\lambda = \frac{n}{2n_Q} \left(1 + \frac{n}{2^{3/2} n_Q} \right).$$
+
+		Then
+
+		$$\mu = \tau \log \left(\frac{n}{2n_Q} \right) + \tau \log \left(1 + \frac{n}{2^{3/2} n_Q} \right)$$
+
+		and since $\log (1+x) \approx x$ for small $x$,
+
+		$$\mu = \tau \left( \log \left(\frac{n}{2n_Q} \right) + \frac{n}{2^{3/2} n_Q} \right).$$
+
+		\item
+
+		From last week's assignment, we know that $P= 2U/3V$. So
+
+		$$P = \frac{2}{3V} \int \limits_0^\infty  d\epsilon \mathcal{D}(\epsilon) f(\epsilon) \epsilon = \frac{2}{6\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \int \limits_0^\infty \frac{\epsilon^{3/2}}{\exp((\epsilon - \mu)/\tau) + 1} d\epsilon.$$
+
+		\item
+
+		Making the same approximations as in (b),
+
+		\begin{gather*}
+		PV = \frac{V}{3\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \left[ \int \limits_0^\infty  \lambda \epsilon^{3/2}\exp(-\epsilon/\tau) d\epsilon - \int \limits_0^\infty  \lambda^2 \epsilon^{3/2}\exp(-2\epsilon/\tau) d\epsilon \right] \\
+		PV = \frac{V}{3\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \left(\lambda - \frac{\lambda^2}{2^{5/2}} \right) \tau^{5/2} \int \limits_0^\infty x^{3/2}\exp(-x) dx \\
+		PV = \frac{V}{3\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \left(\lambda - \frac{\lambda^2}{2^{5/2}} \right) \tau^{5/2} \frac{3 \sqrt{\pi}}{4} \\
+		PV = \frac{V}{4\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \left(\lambda - \frac{\lambda^2}{2^{5/2}} \right) \tau^{5/2} \sqrt{\pi}
+		\end{gather*}
+
+		to second order in $\lambda$.
+
+		\item
+
+		From (d),
+
+		$$\lambda = \exp(\mu/\tau) = \frac{n}{2n_Q}\exp \left( \frac{n}{2^{3/2}n_Q} \right)$$
+
+		and since $n \ll n_Q$, we can use $\exp(x) \approx 1+x$ to get
+
+		$$\lambda = \frac{n}{2n_Q} + \frac{1}{2^{3/2}} \left(\frac{n}{2n_Q}\right)^2.$$
+
+		So, substituting this into our result from (f) and keeping only terms to second order in $n/n_Q$,
+
+		\begin{gather*}
+		PV = 2V\tau n_Q \left( \lambda - \frac{1}{2^{5/2}} \lambda^2 \right) \\
+		PV = 2V\tau n_Q \left( \frac{n}{2n_Q} + \frac{1}{2^{3/2}} \left(\frac{n}{2n_Q}\right)^2 - \frac{1}{2^{5/2}} \left(\frac{n}{2n_Q}\right)^2 \right) \\
+		PV = 2V\tau n_Q \left( \frac{n}{2n_Q} + \frac{1}{2^{5/2}} \left(\frac{n}{2n_Q}\right)^2 \right) \\
+		PV = 2V\tau n_Q \left(\frac{n}{2n_Q} \right) \left(1 + \frac{1}{2^{7/2}} \left(\frac{n}{n_Q}\right) \right) \\
+		PV = N \tau  \left(1 + \frac{1}{2^{7/2}} \left(\frac{n}{n_Q}\right) \right).
+		\end{gather*}
+
+		This is equivalent to
+
+		$$PV = N \tau \left[ 1 + \frac{N\hbar^3 \pi^{3/2}}{4V(m\tau)^{3/2}} \right].$$
+
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
