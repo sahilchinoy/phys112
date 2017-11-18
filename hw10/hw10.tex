@@ -1,0 +1,260 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage[parfill]{parskip}
+
+\title{Physics 112 Problem Set 10 \\ \large{Holzapfel, Section 102}}
+\author{Sahil Chinoy}
+\date{November 20, 2017}
+
+\begin{document}
+\maketitle{}
+
+\begin{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		For heat capacity $C = aT^3$ (assuming it is measured in J/K), $d Q = aT^3 d T$ (at constant volume). Then, since this solid is the low-temperature reservoir of the refrigerator system, $dQ_l = -aT_l^3 dT_l$, where the negative sign comes from the fact that $dT_l$ is negative (the low-temperature reservoir is cooling) and we want to represent the heat flow into the system as a positive quantity. For a refrigerator operating in the reversible limit, $Q_l + W = Q_h$, and $dQ_l / T_l = dQ_h / T_h$, so
+
+		\begin{gather*}
+		dW = dQ_h - dQ_l = dQ_l \left( \frac{T_h}{T_l} -1 \right) = -aT_l^3 dT_l \left( \frac{T_h}{T_l} -1 \right) \\
+		dW = -a(T_h T_l^2 - T_l^3) dT_l
+		\end{gather*}
+
+		Now the total work (electrical energy) required to cool the solid from $T_h$ to 0 is
+
+		\begin{gather*}
+		W = \int \limits_{T_h}^0 -a(T_h T_l^2 - T_l^3) \; dT_l = -a \left. \left( \frac{1}{3} T_h T_l^3 - \frac{1}{4} T_l^4 \right) \right|_{T_h}^0 = \frac{a}{12}T_h^4.
+		\end{gather*}
+
+		\item
+
+		If the heat capacity is $C = aT^3 + bT$, the expression for the differential work becomes
+
+		\begin{gather*}
+		dW =  -(aT_l^3 + bT_l) dT_l \left( \frac{T_h}{T_l} -1 \right) \\
+		dW = -a(T_h T_l^2 - T_l^3) dT_l - b(T_h - T_l) dT_l
+		\end{gather*}
+
+		So the energy required to cool the solid to absolute zero is
+
+		$$W = \frac{a}{12}T_h^4 - \int \limits_{T_h}^0 b(T_h - T_l) dT_l = \frac{a}{12}T_h^4  + \frac{b}{2} T_h^2.$$
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		For a refrigerator operating in the reversible limit, $W = Q_l (T_h - T_l)/T_l$, so $P = dW/dt = (dQ_l/dt) (T_h - T_l)/T_l$. Since the room is gaining heat from the outdoors, $dQ_l/dt = A(T_h - T_l)$, thus
+
+		\begin{gather*}
+		P = \frac{A}{T_l} (T_h-T_l)^2 \\
+		\frac{P}{A}T_l = T_h^2 - 2T_h T_l + T_l^2 \\
+		T_l^2 - 2 \left( T_h + \frac{P}{2A} \right)T_l + T_h^2 = 0 \\
+		\end{gather*}
+
+		which is a quadratic equation whose solution is
+
+		$$T_l = T_h + \frac{P}{2A} - \left[ \left(T_h + \frac{P}{2A} \right)^2 - T_h^2 \right]^{1/2}.$$
+
+		\item
+
+		From the previous calculation, we see the heat loss coefficient is given by
+
+		$$A = \frac{P T_l}{(T_h - T_l)^2}$$
+
+		which, for $P = 2$ kW, $T_h = 310$ K and $T_l = 290$ K, is $A = 1450$ W/K.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		Recall that for blackbody radiation (which we modeled as a photon gas), the energy per unit volume was given by $U/V = a \tau^4$. Then $dU = 4aV \tau^3 d\tau$, and since $d \sigma = dU / \tau$, $\sigma = (4a/3) V\tau^3 + C$ for constants $a, C$.
+
+		This means that for an isoentropic process in a photon gas, the quantity $V\tau^3$ must be constant. For a Carnot cycle, $2 \to 3$ and $4 \to 1$ are isoentropic, so $V_2 \tau_h^3 = V_3 \tau_l^3$, so $V_3 = V_2 (\tau_h / \tau_l)^3$, and $V_4 \tau_l^3 = V_1 \tau_h^3$, so $V_4 = V_1 (\tau_h / \tau_l)^3$.
+
+		\item
+
+		The heat taken up by the photon gas in the isothermal expansion is
+
+		$$Q_h = \tau_h (\sigma_2 - \sigma_1) = \frac{4a}{3}\tau_h^4(V_2 - V_1).$$
+
+		Recall that for a photon gas, $p = U/3V = (a/3) \tau^4$. Thus 
+
+		$$W = \int \limits_{V_1}^{V_2} pdV = \frac{a}{3} \tau^4 \int \limits_{V_1}^{V_2} dV = \frac{a}{3}\tau_h^4(V_2 - V_1),$$
+
+		which does not equal $Q_h$.
+
+		For an ideal gas expanding isothermally, $U = (3/2)N \tau$, thus $\Delta U = 0$ and $Q = W$ by conservation of energy.
+
+		\item
+
+		For the two isoentropic processes, $Q = 0$, so $W = -\Delta U$.
+
+		So for $2 \to 3$
+
+		$$W_{2 \to 3} = -a(V_3 \tau_l^4 - V_2 \tau_h^4) = -aV_2 \tau_h^3 (\tau_l - \tau_h),$$
+
+		and for $4 \to 1,$
+
+		$$W_{4 \to 1} = -a(V_1 \tau_h^4 - V_4 \tau_l^4) = -aV_1 \tau_h^3 (\tau_h - \tau_l).$$
+
+		So the total work done by both isoentropic processes is
+
+		$$W = W_{2 \to 3} + W_{4 \to 1} = -a\tau_h^3(\tau_l - \tau_h)(V_2 - V_1) \neq 0,$$
+
+		unlike the ideal gas, where the work done by these two processes canceled.
+
+		\item
+
+		From (b),
+
+		$$W_{1 \to 2} = \frac{a}{3}\tau_h^4(V_2 - V_1),$$
+
+		and similarly,
+
+		$$W_{3 \to 4} = \frac{a}{3}\tau_l^4(V_4 - V_3) = \frac{a}{3}\tau_h^3 \tau_l (V_2 - V_1)$$
+
+		so the total work done by the gas is
+
+		\begin{gather*}
+		W = W_{1 \to 2} + W_{2 \to 3} + W_{3 \to 4} + W_{4 \to 1} \\
+		W = -a\tau_h^3(\tau_l - \tau_h)(V_2 - V_1) + \frac{a}{3} \tau_h^3 (\tau_h - \tau_l)(V_2 - V_1) \\
+		W = \frac{4a}{3} \tau_h^3 (V_2 - V_1) (\tau_h - \tau_l).
+		\end{gather*}
+
+		From (a), the heat taken up at the high temperature is
+
+		$$Q_h = \frac{4a}{3} \tau_h^4 (V_2 - V_1),$$
+
+		so the energy conversion efficiency is
+
+		$$\eta = \frac{W}{Q_h} = \frac{\tau_h - \tau_l}{\tau_h},$$
+
+		which is just the Carnot efficiency $\eta_C$.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		$W = Q_1 - Q_2$. Assume (without loss of generality) that $T_1 > T_f > T_2$, and note that we want to represent all heat flows as positive quantities. So $Q_1 = C_p(T_1 - T_f)$ and $Q_2 = C_p (T_f - T_2)$. Thus $W = C_p (T_1 + T_2 - 2T_f)$.
+
+		\item
+
+		The differential entropy is $dS = dQ / T = C_p dT / T$, so the total change in entropy is
+
+		$$\Delta S = \int \limits_{T_1}^{T_f} \frac{C_p}{T} \; dT + \int \limits_{T_1}^{T_f} \frac{C_p}{T} \; dT = C_p \log(T_f / T_1) + C_p \log(T_f / T_2) = C_p \log \left( \frac{T_f^2}{T_1T_2} \right).$$
+
+		Since the total entropy must increase, we have $\Delta S \geq 0$, or
+
+		$$T_f \geq \sqrt{T_1T_2}.$$
+
+		\item
+
+		It follows that the total work is bounded by 
+
+		$$W \leq C_p (T_1 + T_2 - 2 \sqrt{T_1T_2}),$$
+
+		and the maximum work obtainable by the engine occurs when the two quantities are equal.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		If all the entropy is created during the two heat transfer processes, to ensure that there is no buildup of entropy in the engine, we must have
+
+		$$\frac{Q_h}{T_{hw}} = \frac{Q_c}{T_{cw}},$$
+
+		and since the rates of heat transfer are equivalent for the low and high temperature reservoirs, we also have
+
+		$$\frac{Q_h}{T_h - T_{hw}} = \frac{Q_c}{T_{cw} - T_c},$$
+
+		so
+
+		$$\frac{T_{hw}}{T_h - T_{hw}} = \frac{T_{cw}}{T_{cw} - T_c}.$$
+
+		Solving for $T_{cw}$, we find
+
+		$$T_{cw} = \frac{T_cT_{hw}}{2 T_{hw} - T_h}.$$
+
+		\item
+
+		The work done by the engine is
+
+		$$W = Q_h - Q_c = K \Delta t (T_h - T_{hw} + T_c - T_{cw})$$
+
+		and since each of the two isothermal process takes time $\Delta t$ and the adiabatic processes occur almost instantaneously, the power output is
+
+		$$P = \frac{W}{2\Delta t} = \frac{K}{2} (T_h - T_{hw} + T_c - T_{cw}),$$
+
+		or, substituting the expression from (a), 
+
+		$$P = \frac{K}{2} \left( T_h - T_{hw} + T_c - \frac{T_cT_{hw}}{2 T_{hw} - T_h} \right).$$
+
+		\item
+
+		Maximizing the power with respect to $T_{hw}$, the first-order condition is
+
+		$$
+		\frac{\partial P}{\partial T_{hw}} = \frac{K}{2}\left(-1 - \frac{T_c(2T_{hw} - T_h) - 2T_c T_{hw} }{(2 T_{hw} - T_h)^2} \right) = 0
+		$$
+
+		which gives
+
+		$$T_c T_h = (2 T_{hw} - T_h)^2$$
+
+		or
+
+		$$T_{hw} = \frac{1}{2} (T_h - \sqrt{T_hT_c}).$$
+
+		Substituting this into the expression for $T_{cw}$, 
+
+		\begin{gather*}
+		T_{cw} = \frac{T_c (T_h - \sqrt{T_hT_c})}{2 (T_h - \sqrt{T_hT_c} - t_h)} \\
+		T_{cw} = \frac{T_c \sqrt{T_h T_c} - T_c T_h}{2\sqrt{T_hT_c} } \\
+		T_{cw} = \frac{1}{2} (T_c - \sqrt{T_h T_c}).
+		\end{gather*}
+
+		\item
+
+		The efficiency is then
+
+		\begin{gather*}
+		\eta = \frac{W}{Q_h} = 1 - \frac{Q_c}{Q_h} = 1 - \frac{T_{cw}}{T_{hw}} \\
+		\eta = 1 - \frac{T_c - \sqrt{T_cT_h}}{T_h - \sqrt{T_cT_h}} \\
+		\eta = 1 - \frac{T_cT_h + \sqrt{T_cT_h}(T_h - T_c) - T_cT_h }{T_h(T_h - T_c)} \\
+		\eta = 1 - \sqrt{\frac{T_c}{T_h}}.
+		\end{gather*}
+
+		\item
+
+		For $T_h = 600^\circ$C = 873 K and $T_c = 25^\circ$C = 298 K, the efficiency is $\eta = 0.42$. The Carnot efficiency is $\eta_C = 1 - (T_c / T_h) = 0.66$. So the efficiency of the typical coal power plant is closer to the more realistic efficiency calculated in this problem than to the Carnot efficiency.
+
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
