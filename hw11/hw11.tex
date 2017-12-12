@@ -1,0 +1,261 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage[parfill]{parskip}
+
+\title{Physics 112 Problem Set 11 \\ \large{Holzapfel, Section 102}}
+\author{Sahil Chinoy}
+\date{December 8, 2017}
+
+\begin{document}
+\maketitle{}
+
+\begin{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		Since $G = N\mu$ and $dG = VdP$ at constant temperature,
+
+		$$d \mu = \frac{1}{N} V dP,$$
+
+		and $PV = N \tau$ for an ideal gas, so 
+
+		$$d \mu = \frac{\tau}{P} dP.$$
+
+		Thus
+
+		$$\mu(\tau, P) = \mu(\tau, P_0) + \int \limits_{P_0}^P \frac{\tau}{P} dP = \mu(\tau, P_0)  + kT \ln \left( \frac{P}{P_0} \right).$$
+
+		\item
+
+		The differential change in the chemical potential of the gas for a change in vapor pressure $dP_v$ is
+
+		$$d\mu_g = \frac{kT}{P_g} dP_g$$
+
+		and the differential change in the chemical potential for the liquid for a change in pressure $dP_l$ is
+
+		$$d\mu_l = \frac{1}{N_l} \left( \frac{\partial G}{\partial P_l} \right)_\tau dP_l = \frac{V}{N_l} dP_l = \frac{1}{n_l}dP_l.$$
+
+		Equating these two differential changes gives
+
+		$$\frac{kT}{P_g} dP_g = \frac{1}{n_l}dP_l.$$
+
+		\item
+
+		Integrating both sides,
+
+		\begin{gather*}
+		\int \limits_{P_0}^{P_v} \frac{1}{P_g} dP_g = \frac{1}{n_l kT} \int \limits_{P_0}^P dP \\
+		\ln\left(\frac{P_v}{P_0} \right) = \frac{P - P_0}{n_lkT} \\
+		P_v = P_0 \exp \left( \frac{P - P_0}{n_lkT} \right).
+		\end{gather*}
+
+		\item
+
+		The fractional increase in vapor pressure is
+
+		$$\frac{P_v}{P_0} = \exp \left( \frac{P - P_0}{n_l k T} \right)$$
+
+		with $P - P_0 = 1$ atm, $T = 300$ K, and 
+
+		$$n_l = \frac{1 \text{ g}}{\text{cm}^3} \times \frac{1 \text{ mol}}{18.02 \text{ g}} \times N_A = 3.34 \times 10^{25} \text{ L}^{-1}.$$
+
+		So $P_v / P_0 = 1.001$. The change in vapor pressure is negligible when $T \gg (P - P_0)/(n_l k) = 0.22$ K, so any reasonable temperature.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		First, the boiling temperature at atmospheric pressure, $T_{b0},$ can be found by equating the vapor pressure of water with the atmospheric pressure $P_0$, whence
+
+		\begin{gather*}
+		C \exp\left(\frac{-L}{RT_{b0}} \right) = P_0 \\
+		T_{b0} = \frac{-L}{R\log(P_0/C)}.
+		\end{gather*}
+
+		Now the boiling temperature $T_b$ at altitude $h$ and atmospheric temperature $T_a$ is given by
+
+		\begin{gather*}
+		C \exp\left(\frac{-L}{RT_{b}} \right) = P_0 \exp \left( \frac{-mgh}{k_bT_a} \right) \\
+		\log(P_0/C) + \frac{-mgh}{k_bT_a} = \frac{-L}{RT_b} \\
+		T_b = \frac{-L/R}{\log(P_0/C) - (mgh)/(k_bT_a)} \\
+		T_b = \frac{T_{b0}}{1 - [N_A mgh/(L T_a)][L / (N_A k_b \log(P_0/C)]} \\
+		T_b = \frac{T_{b0}}{1 + [N_A mgh T_{b0}/(L T_a)]}.
+		\end{gather*}
+
+		\item
+
+		$$\frac{dP}{dh} = P_0 \left( \frac{-mg}{kT_A} \right) \exp \left( \frac{-mgh}{kT_A} \right),$$
+
+		and
+
+		$$\frac{dT_b}{dP} = \frac{-L}{RP} \left( \frac{1}{\log(P/C)} \right)^2 = - \frac{T_{b0}^2 R}{LP_0},$$
+
+		for $P = P_0$, so by the chain rule,
+		 
+		$$\frac{dT_b}{dh} =  \frac{-T_{b0}^2mgN_A}{LT_A} \exp \left( \frac{-mgh}{kT_A} \right) \approx \frac{-T_{b0}^2mgN_A}{LT_A}$$
+
+		to first order in $m$, the mass of a nitrogen molecule, which is a small parameter.
+
+		Directly differentiating the result from (a),
+
+		$$\frac{dT_b}{dh} = \frac{-T_{b0}^2 mg N_A}{LT_A} \left(1 + \frac{mghN_A T_{b0}}{L T_A} \right)^{-2} \approx \frac{-T_{b0}^2mgN_A}{LT_A}$$
+
+		to first order in $m$. So for small changes in height, the two results agree.
+
+		This is a really bad argument ($m$ is not a dimensionless parameter), but I can't be bothered to wade through the algebra to prove the chain rule.
+
+		\item 
+
+		Assuming $T_a \approx 273$ K at the top of Mt. Whitney, $T_{b0} = 373$ K, $m=28 / N_A$ g/mol, $h = 4417$ m, and $L = 50$ kJ/mol, $T_b = 361$ K, or about $88^\circ$C. The boiling point is significantly lower at high altitude than at sea level, meaning that it might take longer to cook food that requires boiling.
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		The osmotic pressure is given by $\Pi = n k T$. Since NaCl dissociates into Na$^+$ and Cl$^-$ ions when it is dissolved, the molar concentration of the solute particles in seawater is twice the molar concentration of salt, so
+
+		$$n = 2 \times \frac{35 \text{ g}}{1 \text{ L}} \times \frac{1 \text{ mol}}{58.44 \text{ g}} \times N_A = 7.21 \times 10^{23} \text{ L}^{-1}.$$
+
+		So at room temperature $T = 298$ K, $\Pi = 2.97 \times 10^6$ Pa.
+
+		\item
+
+		Assume the membrane has an area of 1 m$^2$. The minimum force that must be applied to push water through the membrane is then $F = \Pi \times A = 2.97 \times 10^6$ N. Then, to push 1 L of water through a 1 m$^2$ membrane, the water must travel $10^{-3}$ m, so the total work to desalinate 1 L of water is $W = F \times d = 2.97 \times 10^3$ J.
+
+		\item
+
+		We must account for the heat required to raise the temperature of the water to 373 K and the heat required to vaporize the water. Given that the specific heat of water is 4.184 J/K$\cdot$g, the total heat needed is
+
+		$$Q = \frac{4.184 \text{ J}}{\text{K} \cdot \text{g}} \times (373 - 300) \text{ K} \times 1000 \text{ g} + \frac{40700 \text{ J}}{\text{mol}} \times \frac{1 \text{ mol}}{18.02 \text{ g}} \times 1000 \text{ g} = 2.56 \times 10^6 \text{ J},$$
+
+		which is several orders of magnitude larger than the energy required to desalinate the water using reverse osmosis.
+
+	\end{enumerate}
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		The boiling temperature is given by
+
+		$$T = T_0 + \frac{x R T_0^2}{L_v}$$
+
+		where $T_0$ is the boiling point at atmospheric pressure, 373.2 K, $L_v$ is the latent heat of vaporization, $4.07 \times 10^4$ J/mol, and $x$ is the mole fraction of the solute, which is (remembering that the NaCl molecules dissociate in water)
+
+		$$x = 2 \times \frac{35 \text{ g}}{58.44 \text{ g/mol}} \times \frac{18.02 \text{ g/mol}}{1000 \text{ g}} = 0.022.$$
+
+		So the boiling temperature of seawater is $T = 373.8$ K or $100.7^\circ$C, slightly higher than that of pure water.
+
+		\item
+
+		Since we are transitioning from an impure liquid to a pure solid, we now have
+
+		$$T = T_0 - \frac{x R T_0^2}{L_f},$$
+
+		where $L_f = 6.0 \times 10^3$ is the latent heat of fusion. Using the $x$ calculated previously and $T_0 = 273.2$ K for the melting point of water at room temperature, the freezing temperature is now $T = 271.0$ K, or $-2.2^\circ$C. 
+
+		\item
+
+		It is entropically favorable for the solution to be mixed -- this occurs in the liquid phase, as we consider the solid and gaseous phases pure. Thus we have to add \textit{more} heat to transition the substance from liquid to gas (increasing the boiling point) and remove \textit{more} heat to transition the substance from liquid to solid (lowering the melting point) than if the liquid were pure.
+
+	\end{enumerate}
+
+	\item
+
+	The Gibbs free energy per particle is, including the entropy of mixing term,
+
+	$$G = f_s(0) + f_s'(0) x_s + f_l(0) + f_l'(0)x_l - \tau [x_s \log x_s + (1-x_s) \log(1-x_s) + x_l \log x_l + (1-x_l) \log (1-x_l) ].$$
+
+	In equilibrium, the Gibbs free energy must be minimized with respect to $x_s$ and $x_l$. So
+
+	$$\frac{\partial G}{\partial x_s} = f_s' - \tau(\log x_s - \log(1-x_s)) = 0$$
+
+	and
+
+	$$\frac{\partial G}{\partial x_l} = f_l' - \tau(\log x_l - \log(1-x_l)) = 0.$$
+
+	Assuming $x_l \ll 1$ and $x_s \ll 1$, then $\log(x_s / (1-x_s)) \approx \log(x_s)$ to leading order (and likewise for $x_l$), so
+
+	$$\log(x_s) - \log(x_l) = \frac{f_s' - f_l'}{\tau}$$
+
+	and
+
+	$$k = \frac{x_s}{x_l} = \exp \left( \frac{f_s' - f_l'}{\tau} \right).$$
+
+	which is clearly wrong, because for $f_s' - f_l' = 1$ eV and $T = 1000$ K gives $k = 109592$...
+
+	so I think I probably mixed up a sign somewhere. But also, my thesis is due in an hour, so there's no way I'm going to finish this -- please drop this homework, as I think it'll be my lowest score.
+
+	\item
+
+	\begin{enumerate}
+
+		\item
+
+		The chemical potential of the impure water is given by $\mu_l(\tau, p) = \mu_{l,0}(\tau, p) - x\tau$. Taking the first-order expansion for small variations in pressure,
+
+		$$\mu_l(\tau, p) = \mu_{l,0}(\tau, p_0) + (p - p_0) \frac{\partial \mu_{l,0}}{\partial p} - x\tau.$$
+
+		But
+
+		$$\frac{\partial \mu_{l,0}}{\partial p} = \frac{1}{N_l} \frac{\partial G}{\partial p} = \frac{V}{N_l} = \frac{1}{n_l},$$
+
+		so
+
+		$$\mu_l = \mu_{l,0}(\tau, p_0) + (p - p_0) \frac{1}{n_l} - x\tau.$$
+
+		Following the same logic, the chemical potential of the (pure) gas is
+
+		$$\mu_g = \mu_{g,0}(\tau, p_0) + (p - p_0) \frac{1}{n_g}.$$
+
+		We know that $\mu_{l,0}(\tau, p_0) = \mu_{g,0}(\tau, p_0)$ because the two pure phases are in equilbrium at the vapor pressure $p_0$, so setting $\mu_l(\tau, p_) = \mu_g(\tau, p)$ gives
+
+		$$(p - p_0) \frac{1}{n_l} - x\tau = (p - p_0) \frac{1}{n_g}.$$
+
+		Since $n_l \gg n_g$, this simplifies to
+
+		$$p - p_0 = -xn_g\tau = -xp_0,$$
+
+		so $p = (1-x)p_0$.
+
+		\item
+
+		The Clausius-Clapeyron equation states that for low temperatures,
+
+		$$\frac{dP}{dT} = \frac{PL}{T^2R},$$
+
+		so, along the coexistence curve, a small change in pressure $\Delta P$ corresponds to a change in temperature
+
+		$$\Delta T = \Delta P \frac{T^2R}{PL}.$$
+
+		Thus a decrease in the vapor pressure $\Delta P = -xP_0$ would decrease the boiling point by
+
+		$$\Delta T = -xP_0 \frac{T_0^2R}{P_0L_v} = -\frac{xRT_0^2}{L_v}$$
+
+		where $T_0$ is the boiling point of pure water at room temperature and $L_v$ is the latent heat of vaporization (these are the relevant quantities because we are on the liquid-vapor coexistence curve).
+
+		This is precisely equal in magnitude to the increase in the boiling temperature stated in Problem 4(a), so the two effects cancel.
+
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
